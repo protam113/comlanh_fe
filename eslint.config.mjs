@@ -33,12 +33,8 @@ const config = [
   // Rule tùy chỉnh cho no-console
   {
     rules: {
-      'no-console': [
-        'error',
-        {
-          allow: env === 'development' ? ['log', 'warn', 'error'] : [],
-        },
-      ],
+      'no-console':
+        env === 'development' ? 'off' : ['warn', { allow: ['warn', 'error'] }],
       '@typescript-eslint/no-explicit-any': 'off', // Cho phép sử dụng any
     },
   },
