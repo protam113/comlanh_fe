@@ -8,6 +8,9 @@ import FaqCard from '@/components/card/faq.card';
 import { SectionTag } from '@/components/design/section.design';
 import { OurStrengthCard } from '@/components/card/our-strength.card';
 import { IntroCard } from '@/components/card/intro.card';
+import { PublicContainer } from '@/components/wrappers/public.container';
+import { CtaCard } from '@/components/card/cta.card';
+import { GallerySection } from '@/components/card/gallery.card';
 
 const processSteps = [
   {
@@ -136,7 +139,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="container-custom mt-24">
+        <PublicContainer className="mx-auto mt-24">
           <div className="rounded-3xl overflow-hidden aspect-21/9 shadow-warm-xl relative group">
             <img
               src="/images/about/process.png"
@@ -153,40 +156,14 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
+        </PublicContainer>
       </section>
 
       {/* Reused Certifications */}
       <Certifications />
-
+      <GallerySection />
       {/* Call to Action */}
-      <section className="py-24 bg-primary relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[40%] h-full bg-white/5 skew-x-[-20deg] translate-x-20"></div>
-        <div className="container-custom relative z-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-8">
-            Cùng Ngọc Điền Nâng Tầm <br />
-            Bữa Cơm Việt
-          </h2>
-          <p className="text-white/80 text-lg mb-12 max-w-2xl mx-auto">
-            Trải nghiệm hương vị gạo thượng hạng, an toàn và tinh tế từ vùng đất
-            Sóc Trăng.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <a
-              href="/san-pham/tat-ca"
-              className="bg-white text-primary px-10 py-4 rounded-full font-black hover:bg-beige hover:-translate-y-1 transition-all shadow-lg"
-            >
-              XEM SẢN PHẨM
-            </a>
-            <a
-              href="/lien-he"
-              className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-full font-black hover:bg-white hover:text-primary hover:-translate-y-1 transition-all"
-            >
-              LIÊN HỆ NGAY
-            </a>
-          </div>
-        </div>
-      </section>
+      <CtaCard />
     </main>
   );
 }

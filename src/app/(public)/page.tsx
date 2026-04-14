@@ -7,6 +7,7 @@ import Certifications from '@/components/Certifications';
 import { OurStrengthCard } from '@/components/card/our-strength.card';
 import { GoldStandardCard } from '@/components/card/gold-standard.card';
 import { IntroCard } from '@/components/card/intro.card';
+import { CtaCard } from '@/components/card/cta.card';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
 
       <News />
       <Certifications />
+      <CtaCard />
     </main>
   );
 }

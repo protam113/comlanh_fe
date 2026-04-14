@@ -67,7 +67,7 @@ export default function Footer() {
               <img
                 src="/logo_2.svg"
                 alt="Ngọc Điền"
-                className="h-10 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-20 w-auto object-contain brightness-0 invert opacity-90"
               />
             </div>
             <p className="text-[0.9rem] text-white/70 leading-relaxed">

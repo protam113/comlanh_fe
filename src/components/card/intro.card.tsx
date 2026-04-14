@@ -52,7 +52,7 @@ export const IntroCard = () => {
           >
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-warm-lg">
               <img
-                src="/images/about/factory.png"
+                src="/images/rice_warehouse.webp"
                 alt="Nhà máy chế biến gạo hiện đại"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />

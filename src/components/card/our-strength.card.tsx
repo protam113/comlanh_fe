@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionTag } from '../design/section.design';
 import { Arrows } from '@/assets';
 import { PublicContainer } from '../wrappers/public.container';
+import Image from 'next/image';
 
 const solution = [
   {
@@ -50,10 +51,16 @@ export const OurStrengthCard = () => {
           </div>
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary-container opacity-10 rounded-xl blur-2xl group-hover:opacity-15 transition-opacity"></div>
-            <img
+            {/* <img
               className="relative w-full h-[500px] object-cover rounded-xl shadow-lg transform group-hover:-translate-y-2 transition-transform duration-500"
               data-alt="Professional technician in uniform performing precision maintenance on a modern outdoor air conditioning unit with focus on technical skill and detail"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdAULiWkjRm_gQhFW_DPCoeyfyu-BAdKvtraav626DKpvz4AuT13Wxpa32x6X27MCVKsI2MDKGLdbHFHuVZMgEb9jrpL12gMnpAJg1KEdfLZymeNf2ImLABvWg_jqaAfjqq-WVyMmBaxjRAdOmZygetyv_ZdxYsgK2d3oB7TJBOg4_v3Yab7bKh8FxsrunlV0l-qVJw18VtBPT5VYMIgPEtD5gMker_Ot11cUgnoYiZLqoxZD3m44704PeY1GCDb0oZ-aq2E0QAUE"
+            /> */}
+            <Image
+              src="/images/light_logo.webp"
+              alt="Logo"
+              height={500}
+              width={550}
             />
           </div>
         </div>
@@ -61,9 +68,9 @@ export const OurStrengthCard = () => {
           {solution.map((item, i) => (
             <div
               key={i}
-              className="bg-beige-50 p-10 rounded-xl transition-all duration-500 hover:translate-x-2"
+              className="bg-beige-50 p-5 rounded-xl transition-all duration-500 hover:translate-x-2"
             >
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-4">
                 <div>
                   <h3 className="font-headline text-secondary-800 text-2xl font-bold text-on-surface mb-4">
                     {item.title}
