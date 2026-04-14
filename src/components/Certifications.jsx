@@ -1,6 +1,8 @@
 'use client';
 
 import { useIntersection } from '@/hooks/useIntersection';
+import { PublicContainer } from './wrappers/public.container';
+import { SectionTag } from './design/section.design';
 
 const certs = [
   {
@@ -100,41 +102,37 @@ export default function Certifications() {
       {/* Decorative background circle */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square rounded-full bg-primary/2 blur-3xl pointer-events-none"></div>
 
-      <div className="container-custom relative z-10">
+      <PublicContainer className="mx-auto relative z-10">
         <div
           className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           {/* Left text */}
           <div className="max-w-xl">
-            <div className="section-tag !mb-8">🏅 Chứng nhận & Tiêu chuẩn</div>
-            <h2 className="section-title leading-tight">
+            <SectionTag title="Chứng nhận & Tiêu chuẩn" />
+
+            <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
               Chất Lượng Được
               <br />
               Kiểm Chứng Độc Lập
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed mb-12">
-              Mọi lô gạo Ngọc Điền đều trải qua kiểm nghiệm nghiêm ngặt tại
-              phòng lab độc lập trước khi đến tay người tiêu dùng. Chúng tôi cam
-              kết mang lại sản phẩm an toàn tuyệt đối.
+            <p className="text-lg text-secondary-800 leading-relaxed mb-12">
+              Chúng tôi xóa tan nỗi lo về nguồn gốc hàng hóa và các đợt kiểm tra
+              liên ngành. Sự chuyên nghiệp của Cơm Lành thể hiện qua:
             </p>
 
             <div className="space-y-6">
               {[
                 {
-                  title: 'An toàn tuyệt đối',
-                  desc: 'Không tồn dư thuốc trừ sâu (đạt chuẩn MRL EU)',
+                  title: 'Hồ sơ chuẩn chỉnh',
+                  desc: 'Cung cấp đầy đủ hóa đơn chứng từ, nguồn gốc xuất xứ rõ ràng. Mọi sản phẩm đều đạt chứng nhận vệ sinh an toàn thực phẩm và có bản tự công bố chất lượng đầy đủ.',
                 },
                 {
-                  title: 'Tự nhiên 100%',
-                  desc: 'Không chất bảo quản hay phụ gia công nghiệp',
-                },
-                {
-                  title: 'Minh bạch',
-                  desc: 'Truy xuất nguồn gốc QR code trên từng bao bì',
+                  title: 'Bao bì định danh',
+                  desc: 'Gạo được đóng gói trong bao bì thương hiệu chuẩn mực, ghi rõ thông tin Công ty TNHH Trọn Vẹn Toàn. Điều này không chỉ giúp anh chị tự tin trước các cơ quan quản lý mà còn nâng tầm uy tín của nhà hàng trong mắt thực khách.',
                 },
               ].map((item, i) => (
                 <div key={i} className="flex gap-4 group">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-xl transition-transform group-hover:scale-110 duration-300">
+                  <div className="shrink-0 w-12 h-12 rounded-xl bg-primary/10 text-main flex items-center justify-center font-bold text-xl transition-transform group-hover:scale-110 duration-300">
                     <svg
                       width="20"
                       height="20"
@@ -149,7 +147,7 @@ export default function Certifications() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-bold text-text-secondary mb-1 group-hover:text-primary transition-colors">
+                    <h4 className="font-bold text-main mb-1 group-hover:text-primary transition-colors">
                       {item.title}
                     </h4>
                     <p className="text-[0.9rem] text-text-muted">{item.desc}</p>
@@ -187,7 +185,7 @@ export default function Certifications() {
             ))}
           </div>
         </div>
-      </div>
+      </PublicContainer>
     </section>
   );
 }

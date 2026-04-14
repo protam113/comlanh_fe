@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { products } from '@/data/products';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { PublicContainer } from '@/components/wrappers/public.container';
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -37,7 +38,7 @@ export default function ProductDetail() {
     <div className="pt-24 bg-white">
       {/* Breadcrumbs */}
       <div className="bg-section-alt py-3 border-b border-divider">
-        <div className="container-custom">
+        <PublicContainer className="container-custom">
           <nav className="flex items-center gap-2 text-[0.8rem] font-bold text-text-muted uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">
               Trang chủ
@@ -52,10 +53,10 @@ export default function ProductDetail() {
             <span>/</span>
             <span className="text-white">{product.name}</span>
           </nav>
-        </div>
+        </PublicContainer>
       </div>
 
-      <section className="py-16 container-custom">
+      <PublicContainer className="py-16 mx-auto">
         <div className="grid lg:grid-cols-[100px_1fr_1fr] gap-10 lg:gap-20">
           {/* Gallery Thumbnails (Vertical) */}
           <div className="hidden lg:flex flex-col gap-4">
@@ -81,18 +82,6 @@ export default function ProductDetail() {
               alt={product.name}
               className="w-full h-full object-contain drop-shadow-2xl transition-all duration-700"
             />
-            <button className="absolute bottom-6 right-6 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-text-muted hover:text-primary transition-colors">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M15 3h6v6m-11 11H4v-6m7-11L4 4m11 11l5 5"></path>
-              </svg>
-            </button>
           </div>
 
           {/* Product Right Content */}
@@ -101,33 +90,11 @@ export default function ProductDetail() {
               {product.name}
             </h1>
 
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-sm font-bold text-text-muted">
-                {product.stockStatus}
-              </span>
-              <div className="w-1.5 h-1.5 bg-divider rounded-full"></div>
-              <span className="text-sm font-bold text-primary italic">
-                SKU: PD-001
-              </span>
-            </div>
-
             <div className="text-4xl font-black text-primary mb-10">
               {product.status}
             </div>
 
             <div className="space-y-8 pb-10 border-b border-divider">
-              <div>
-                <h4 className="text-xs font-black uppercase tracking-widest text-text-secondary mb-4 underline decoration-primary decoration-2 underline-offset-8">
-                  Mô tả
-                </h4>
-                <div
-                  className="text-[0.95rem] text-text-secondary/80 leading-relaxed"
-                  dangerouslySetInnerHTML={{
-                    __html: product.detailedDescription || '',
-                  }}
-                />
-              </div>
-
               <div>
                 <h4 className="text-lg font-black text-text-secondary mb-4 flex items-center gap-2">
                   <span className="text-primary italic">1.</span> TÍNH CHẤT NỔI
@@ -160,55 +127,32 @@ export default function ProductDetail() {
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <button className="flex-1 bg-primary text-white font-black py-4 rounded-xl shadow-warm-lg hover:shadow-warm-xl hover:-translate-y-1 transition-all">
+                <button className="flex-1 bg-main text-white font-black py-4 rounded-xl shadow-warm-lg hover:shadow-warm-xl hover:-translate-y-1 transition-all">
                   LIÊN HỆ
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </PublicContainer>
 
       {/* Extended Info Sections */}
-      <section className="bg-section-alt/30 py-24 border-t border-divider">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto space-y-20">
-            <div>
-              <h3 className="text-xl font-black text-text-secondary mb-8 flex items-center gap-3">
-                <span className="text-primary italic">4.</span> BẢO QUẢN
-              </h3>
-              <p className="text-lg text-text-secondary leading-relaxed pl-8 border-l-2 border-primary/20">
-                {product.storage}
-                <br />- Đậy kín nắp/miệng túi sau khi lấy hạt.
-                <br />- Tránh tiếp xúc trực tiếp với ánh nắng mặt trời.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-12 sm:items-center p-8 bg-white rounded-3xl border border-divider shadow-sm">
-              <div className="space-y-2">
-                <span className="text-xs font-black text-text-muted uppercase tracking-widest">
-                  Hạn sử dụng
-                </span>
-                <p className="text-xl font-bold text-text-secondary">
-                  {product.shelfLife}
-                </p>
-              </div>
-              <div className="hidden sm:block w-px h-12 bg-divider"></div>
-              <div className="space-y-2">
-                <span className="text-xs font-black text-text-muted uppercase tracking-widest">
-                  Cảnh báo
-                </span>
-                <p className="text-[0.95rem] font-bold text-warm">
-                  Không sử dụng sản phẩm khi có dấu hiệu hư hỏng
-                </p>
-              </div>
-            </div>
-          </div>
+      <PublicContainer className="bg-section-alt/30 py-24 border-t border-divider mx-auto">
+        <div>
+          <h4 className="text-xs font-black uppercase tracking-widest text-text-secondary mb-4 underline decoration-primary decoration-2 underline-offset-8">
+            Mô tả
+          </h4>
+          <div
+            className="text-[0.95rem] text-text-secondary/80 leading-relaxed"
+            dangerouslySetInnerHTML={{
+              __html: product.detailedDescription || '',
+            }}
+          />
         </div>
-      </section>
+      </PublicContainer>
 
       {/* Related Products */}
-      <section className="py-24 container-custom">
+      <PublicContainer className="py-24 mx-auto">
         <div className="flex items-center justify-between mb-16">
           <h2 className="font-heading text-3xl font-black text-text-secondary">
             Sản phẩm liên quan
@@ -269,7 +213,7 @@ export default function ProductDetail() {
             </Link>
           ))}
         </div>
-      </section>
+      </PublicContainer>
     </div>
   );
 }

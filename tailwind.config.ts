@@ -115,6 +115,8 @@ export default {
       },
       fontFamily: {
         logoFont: ['LogoFont', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        heading: ['Lora', 'serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

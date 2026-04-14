@@ -1,5 +1,6 @@
 'use client';
 
+import { PublicContainer } from '@/components/wrappers/public.container';
 import { useEffect } from 'react';
 
 export default function Contact() {
@@ -24,7 +25,7 @@ export default function Contact() {
       </section>
 
       <section className="py-24">
-        <div className="container-custom">
+        <PublicContainer className="container-custom">
           <div className="grid lg:grid-cols-2 gap-20">
             {/* Contact Info */}
             <div className="space-y-12">
@@ -187,7 +188,7 @@ export default function Contact() {
               </form>
             </div>
           </div>
-        </div>
+        </PublicContainer>
       </section>
     </div>
   );

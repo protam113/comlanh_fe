@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useIntersection } from '../hooks/useIntersection';
 import { articles } from '@/data/articles';
+import { SectionTag } from './design/section.design';
+import { PublicContainer } from './wrappers/public.container';
 
 export default function News() {
   const [ref, isVisible] = useIntersection({ threshold: 0.1, once: true });
@@ -10,10 +12,10 @@ export default function News() {
   return (
     <section
       id="news-section"
-      className="py-32 bg-section-alt scroll-mt-20 overflow-hidden"
+      className="py-32 bg-beige-50 scroll-mt-20 overflow-hidden"
       ref={ref}
     >
-      <div className="container-custom relative">
+      <PublicContainer className="mx-auto relative">
         {/* Decorative elements */}
         <div className="absolute top-0 right-[-10%] w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-[-10%] w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -22,11 +24,11 @@ export default function News() {
           className={`flex flex-col md:flex-row justify-between items-end gap-10 mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div className="max-w-2xl">
-            <div className="section-tag !mb-6">📖 Blog & Tin tức</div>
-            <h2 className="section-title !mb-0 leading-tight">
+            <SectionTag title="Bài Viết & Tin tức" />
+            <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
               Kiến Thức Lúa Gạo
               <br />
-              Từ Chuyên Gia
+              Từ Chuyên Gia{' '}
             </h2>
           </div>
           <Link
@@ -119,15 +121,12 @@ export default function News() {
                     </svg>
                     {article.date}
                   </div>
-                  <div className="flex items-center gap-1.5 text-[0.85rem] font-bold text-primary group-hover:animate-pulse-slow">
-                    <span>{article.readTime}</span>
-                  </div>
                 </div>
               </div>
             </Link>
           ))}
         </div>
-      </div>
+      </PublicContainer>
     </section>
   );
 }

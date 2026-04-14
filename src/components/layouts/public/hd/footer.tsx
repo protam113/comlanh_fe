@@ -1,5 +1,6 @@
 'use client';
 
+import { PublicContainer } from '@/components/wrappers/public.container';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -13,10 +14,10 @@ const quickLinks = [
 ];
 
 const policyLinks = [
-  { label: 'Chính sách giao hàng', href: '#' },
-  { label: 'Chính sách đổi trả', href: '#' },
-  { label: 'Bảo mật thông tin', href: '#' },
-  { label: 'Điều khoản sử dụng', href: '#' },
+  { label: 'Gạo Nếp', href: '#' },
+  { label: 'Gạo Lứt', href: '#' },
+  { label: 'Gạo Trắng', href: '#' },
+  { label: 'Gạo Nhật', href: '#' },
 ];
 
 const contactItems = [
@@ -27,13 +28,22 @@ const contactItems = [
         <circle cx="12" cy="10" r="3" />
       </>
     ),
-    text: '123 Đường Nông Sản, TP. Sóc Trăng',
+    text: 'CÔNG TY TNHH TRỌN VẸN TOÀN.',
+  },
+  {
+    icon: (
+      <>
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </>
+    ),
+    text: 'B5/124 Quốc lộ 50, Tổ 5, Ấp 2, Xã Bình Hung, Thành phố Hồ Chí Minh, Việt Nam.',
   },
   {
     icon: (
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6.79-6.79 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
     ),
-    text: 'Hotline: 1800 6868',
+    text: 'Hotline: 055.9955.2121',
   },
   {
     icon: (
@@ -42,15 +52,14 @@ const contactItems = [
         <polyline points="22 6 12 13 2 6" />
       </>
     ),
-    text: 'info@ngocdien.vn',
+    text: 'info@gaolanh.vn',
   },
 ];
 
 export default function Footer() {
-  const [subscribed, setSubscribed] = useState(false);
   return (
-    <footer id="main-footer" className="bg-text text-white/90 pt-24">
-      <div className="container-custom pb-16">
+    <footer id="main-footer" className="bg-main text-white/90 pt-24">
+      <PublicContainer className="container-custom pb-16 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
           {/* Brand Info */}
           <div className="flex flex-col gap-6">
@@ -70,7 +79,7 @@ export default function Footer() {
               {contactItems.map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-3 text-[0.85rem] text-white/60 group cursor-pointer hover:text-primary transition-colors"
+                  className="flex items-start gap-3 text-[0.85rem] text-white/60 group cursor-pointer hover:text-white transition-colors"
                 >
                   <svg
                     className="w-4 h-4 mt-0.5 shrink-0"
@@ -125,7 +134,7 @@ export default function Footer() {
           {/* Policy & Shops */}
           <div>
             <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-6">
-              Chính sách
+              Danh mục
             </h3>
             <ul className="flex flex-col gap-3 mb-10">
               {policyLinks.map((link) => (
@@ -156,57 +165,20 @@ export default function Footer() {
               Mua hàng online
             </h3>
             <div className="flex flex-wrap gap-2">
-              {['🛒 Shopee', '🛍 Lazada', '🎁 Tiki', '🎵 TikTok'].map(
-                (shop) => (
-                  <a
-                    key={shop}
-                    href="#"
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-sm text-[0.75rem] text-white/60 hover:bg-white/10 hover:text-white transition-all"
-                  >
-                    {shop}
-                  </a>
-                )
-              )}
+              {[' Shopee', ' Lazada', ' Tiki', ' TikTok'].map((shop) => (
+                <a
+                  key={shop}
+                  href="#"
+                  className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-sm text-[0.75rem] text-white/60 hover:bg-white/10 hover:text-white transition-all"
+                >
+                  {shop}
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Newsletter */}
           <div className="flex flex-col gap-6">
-            <div>
-              <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-6">
-                Nhận tin tức
-              </h3>
-              <p className="text-[0.85rem] text-white/60 leading-relaxed mb-4">
-                Đăng ký bản tin để nhận ưu đãi và mẹo nấu ăn hữu ích.
-              </p>
-              {subscribed ? (
-                <div className="bg-primary/20 border border-primary/30 rounded-sm p-4 text-primary text-xs font-bold animate-fade-in-up">
-                  ✨ Cảm ơn bạn! Chúng tôi sẽ gửi tin tức sớm nhất đến bạn.
-                </div>
-              ) : (
-                <form
-                  className="flex gap-2"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSubscribed(true);
-                  }}
-                >
-                  <input
-                    type="email"
-                    required
-                    placeholder="Email của bạn"
-                    className="flex-1 bg-white/5 border border-white/10 rounded-sm px-4 py-2 text-sm text-white focus:outline-none focus:border-primary/50 transition-colors"
-                  />
-                  <button
-                    type="submit"
-                    className="bg-primary hover:bg-primary-light text-white font-bold text-xs uppercase px-4 rounded-sm transition-colors cursor-pointer"
-                  >
-                    Gửi
-                  </button>
-                </form>
-              )}
-            </div>
-
             <div>
               <h3 className="text-white font-bold text-sm uppercase tracking-widest mb-4">
                 Kết nối
@@ -231,26 +203,14 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </PublicContainer>
 
       {/* Footer Bottom */}
       <div className="border-t border-white/5 py-8 bg-black/10">
         <div className="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.8rem] text-white/40 font-medium">
-          <span>© 2025 Gạo Ngọc Điền. Bảo lưu mọi quyền.</span>
-          <div className="flex gap-6 uppercase tracking-widest text-[0.7rem]">
-            <a href="#" className="hover:text-white transition-colors">
-              Điều khoản
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Bảo mật
-            </a>
-            <a href="#" className="hover:text-white transition-colors">
-              Cookie
-            </a>
-          </div>
-          <span className="flex items-center gap-1">
-            Made with <span className="text-primary">❤️</span> in Mekong Delta
-          </span>
+          <span>© 2025 Gạo Lành. Bảo lưu mọi quyền.</span>
+          <div className="flex gap-6 uppercase tracking-widest text-[0.7rem]"></div>
+          <span className="flex items-center gap-1">Made by Vietstrix</span>
         </div>
       </div>
     </footer>

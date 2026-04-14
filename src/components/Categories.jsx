@@ -1,6 +1,8 @@
 'use client';
 
 import { useIntersection } from '@/hooks/useIntersection';
+import { PublicContainer } from './wrappers/public.container';
+import { SectionTag } from './design/section.design';
 
 const categories = [
   {
@@ -44,17 +46,16 @@ export default function Categories() {
       className="py-32 bg-white scroll-mt-20 relative overflow-hidden"
       ref={ref}
     >
-      <div className="container-custom relative z-10">
+      <PublicContainer className="container-custom mx-auto relative z-10">
         <div
           className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <div className="section-tag !bg-primary/10 !text-primary transform hover:scale-105 transition-transform duration-300">
-            Tinh hoa lúa gạo
-          </div>
-          <h2 className="section-title text-center mx-auto !mb-4 leading-tight">
+          <div className="section-tag bg-primary/10! text-primary! transform hover:scale-105 transition-transform duration-300"></div>
+          <SectionTag title="Tinh hoa lúa gạo" />
+          <h1 className="text-4xl text-secondary-700 font-bold mt-4 mb-4">
             Danh mục Cơm Lành
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-transparent via-primary/40 to-transparent mx-auto rounded-full"></div>
+          </h1>
+          <div className="w-16 h-1 bg-linear-to-r from-transparent via-primary-800/40 to-transparent mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-16">
@@ -70,17 +71,12 @@ export default function Categories() {
             >
               {/* Image & Spotlight Area */}
               <div className="relative w-full max-w-[200px] mx-auto mb-10">
-                {/* Spotlight / Glow */}
-                <div
-                  className={`absolute inset-[-20%] rounded-full transition-opacity duration-700 pointer-events-none ${cat.isActive ? 'gold-glow opacity-100' : 'opacity-0 group-hover:opacity-100 group-hover:gold-glow'}`}
-                ></div>
-
                 {/* Floating Image Container */}
                 <div
                   className="relative z-10 animate-float-slow"
                   style={{ animationDelay: `${idx * 0.5}s` }}
                 >
-                  <div className="w-full aspect-square rounded-full bg-white shadow-2xl overflow-hidden p-1 border border-white transition-transform duration-500 group-hover:scale-110">
+                  <div className="w-full aspect-square rounded-md bg-white shadow-2xl overflow-hidden p-1 border border-white transition-transform duration-500 group-hover:scale-110">
                     <img
                       src={cat.img}
                       alt={cat.name}
@@ -88,23 +84,15 @@ export default function Categories() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-
-                  {/* Silk Ribbon Tag */}
-                  <div className="silk-ribbon group-hover:translate-x-1 group-hover:-translate-y-1">
-                    {cat.ribbon}
-                  </div>
-
-                  {/* Pedestal Shadow */}
-                  <div className="floating-pedestal opacity-60 group-hover:opacity-100 group-hover:scale-110"></div>
                 </div>
               </div>
 
               {/* Text Information */}
               <div className="relative z-10 text-center flex flex-col items-center">
                 <span className="text-[0.65rem] font-bold text-primary/60 uppercase tracking-[0.2em] mb-2 scale-90 group-hover:scale-100 transition-transform">
-                  Premium Quality
+                  Chất Lượng Cao
                 </span>
-                <h3 className="font-heading text-xl font-extrabold text-text-secondary group-hover:text-primary transition-colors duration-300">
+                <h3 className="font-heading text-xl font-extrabold text-secondary-700 group-hover:text-primary-800 transition-colors duration-300">
                   {cat.name}
                 </h3>
 
@@ -121,7 +109,7 @@ export default function Categories() {
             </article>
           ))}
         </div>
-      </div>
+      </PublicContainer>
     </section>
   );
 }

@@ -4,96 +4,32 @@ import { useEffect } from 'react';
 import { useIntersection } from '@/hooks/useIntersection';
 import Stats from '@/components/Stats';
 import Certifications from '@/components/Certifications';
-
-const coreValues = [
-  {
-    title: 'Tận Tâm',
-    desc: 'Chúng tôi chăm chút từng hạt gạo từ khâu chọn giống đến khi đóng bao, mang trọn tâm huyết của người nông dân đến bàn ăn mỗi gia đình.',
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Chất Lượng',
-    desc: 'Cam kết 100% gạo sạch, không pha trộn, không chất bảo quản, đạt chuẩn kiểm định quốc tế nghiêm ngặt nhất.',
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Bền Vững',
-    desc: 'Phát triển nông nghiệp xanh, bảo vệ môi trường và đồng hành cùng sự thịnh vượng của cộng đồng nông dân địa phương.',
-    icon: (
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M11 20A7 7 0 0 1 9.8 6.1M9 5a7 7 0 0 1 12 5" />
-        <path d="M2 20l5-5" />
-        <path d="M7 20l-5-5" />
-      </svg>
-    ),
-  },
-];
+import FaqCard from '@/components/card/faq.card';
+import { SectionTag } from '@/components/design/section.design';
+import { OurStrengthCard } from '@/components/card/our-strength.card';
+import { IntroCard } from '@/components/card/intro.card';
 
 const processSteps = [
   {
     step: '01',
-    title: 'Chọn Giống & Thổ Nhưỡng',
-    desc: 'Lựa chọn những giống gạo ST25, Gạo Lứt tốt nhất, canh tác trên vùng đất phù sa màu mỡ của Sóc Trăng.',
+    title: ' Gửi mẫu thử đa dạng (Mẫu nhỏ)',
+    desc: 'Sau khi nhận thông tin về mô hình quán, chúng tôi sẽ gửi bộ mẫu thử gồm 3-5 loại gạo khác nhau phù hợp với phân khúc giá anh chị mong muốn. Anh chị có thể xem mặt gạo, ngửi mùi thơm và nấu thử bát nhỏ để kiểm tra độ dẻo/nở.',
   },
   {
     step: '02',
-    title: 'Canh Tác Hữu Cơ',
-    desc: 'Áp dụng quy trình VietGAP, kiểm soát nghiêm ngặt nguồn nước và phân bón hữu cơ.',
+    title: ' Chọn "Ứng cử viên" số 1',
+    desc: 'Sau khi anh chị đã ưng ý với một loại mẫu thử cụ thể, hãy phản hồi cho Cơm Lành.',
   },
   {
     step: '03',
-    title: 'Thu Hoạch & Chế Biến',
-    desc: 'Thu hoạch đúng độ chín, sấy lúa bằng công nghệ hiện đại để giữ trọn mùi thơm nguyên bản.',
-  },
-  {
-    step: '04',
-    title: 'Kiểm Định & Đóng Gói',
-    desc: 'Mỗi lô hàng đều được kiểm nghiệm dư lượng thuốc trừ sâu và đóng gói hút chân không cao cấp.',
+    title: 'Tặng 5kg gạo để "Chạy thử" nồi lớn',
+    desc: 'Đây là bước quan trọng nhất. Cơm Lành sẽ gửi tặng 5kg gạo chính loại đó để anh chị nấu trực tiếp bằng nồi cơm công nghiệp tại quán.',
   },
 ];
 
 export default function About() {
   const [heroRef, heroVisible] = useIntersection({
     threshold: 0.1,
-    once: true,
-  });
-  const [historyRef, historyVisible] = useIntersection({
-    threshold: 0.2,
     once: true,
   });
   const [valuesRef, valuesVisible] = useIntersection({
@@ -106,7 +42,7 @@ export default function About() {
   }, []);
 
   return (
-    <main className="pt-20">
+    <main className="">
       {/* Hero Section */}
       <section
         className="relative h-[70vh] flex items-center justify-center overflow-hidden"
@@ -125,139 +61,79 @@ export default function About() {
           className={`container-custom relative z-10 text-center text-white transition-all duration-1000 transform ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div className="inline-block px-4 py-1.5 bg-primary/20 backdrop-blur-md border border-white/30 rounded-full text-sm font-bold tracking-[0.2em] uppercase mb-6">
-            Hành trình hạt ngọc trời
+            Gao Lanh
           </div>
-          <h1 className="text-5xl md:text-7xl font-heading font-black mb-8 leading-tight">
+          <h1 className="text-2xl md:text-5xl font-heading font-black mb-8 leading-tight">
             <span className="text-primary-bg opacity-90 italic">
-              Tinh Hoa Lúa Gạo Việt
+              KHÔNG CẦN GẠO ĐẮT NHẤT – CHỈ CẦN GẠO PHÙ HỢP NHẤT
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-white/80 leading-relaxed font-medium">
-            Hơn 15 năm kiến tạo những giá trị bền vững từ tinh hoa nông nghiệp
-            Việt Nam, mang hạt gạo sạch và đủ đầy dinh dưỡng đến mọi bàn ăn.
+            Cơm Lành đồng hành cùng chủ quán tìm ra "chân ái" cho nồi cơm kinh
+            doanh thông qua chương trình: Thử mẫu nhỏ - Nấu mẫu lớn (5kg).
           </p>
         </div>
       </section>
 
       {/* History Section */}
-      <section
-        className="py-32 bg-white overflow-hidden"
-        ref={historyRef as unknown as React.RefObject<HTMLElement>}
-      >
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div
-              className={`transition-all duration-1000 delay-300 ${historyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
-            >
-              <div className="section-tag">Câu chuyện thương hiệu</div>
-              <h2 className="section-title">
-                Hành Trình 15 Năm <br />
-                Gắn Bó Cùng Đất Mẹ
-              </h2>
-              <div className="space-y-6 text-text-secondary leading-relaxed text-lg">
-                <p>
-                  Cơm Lành bắt đầu từ niềm đam mê mãnh liệt với nông sản quê
-                  hương Sóc Trăng. Chúng tôi nhận ra rằng, dù Việt Nam là cường
-                  quốc lúa gạo, người tiêu dùng Việt vẫn luôn khao khát những
-                  sản phẩm thực sự sạch, minh bạch và đẳng cấp.
-                </p>
-                <p>
-                  Suốt hơn một thập kỷ, chúng tôi không ngừng cải tiến công
-                  nghệ, mở rộng vùng nguyên liệu và xây dựng chuỗi cung ứng khép
-                  kín. Từ một cơ sở sản xuất nhỏ, Ngọc Điền tự hào trở thành đối
-                  tác tin cậy của hàng nghìn đại lý và xuất khẩu hạt gạo Việt
-                  đến 12 quốc gia trên thế giới.
-                </p>
-                <div className="pt-4 border-l-4 border-primary pl-6 italic font-medium text-primary-dark">
-                  "Chúng tôi không chỉ bán gạo, chúng tôi trao gửi sự an tâm và
-                  sức khỏe trong từng bữa cơm gia đình."
-                </div>
-              </div>
-            </div>
-
-            <div
-              className={`relative transition-all duration-1000 delay-500 ${historyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
-            >
-              <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-warm-lg">
-                <img
-                  src="/images/about/factory.png"
-                  alt="Nhà máy chế biến gạo hiện đại"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <IntroCard />
 
       {/* Stats Section Reused */}
       <Stats />
 
       {/* Vision & Values */}
       <section
-        className="py-32 bg-beige/30"
+        className="py-32 bg-beige-50/80"
         ref={valuesRef as unknown as React.RefObject<HTMLElement>}
       >
-        <div className="container-custom text-center mb-20">
-          <div className="section-tag mx-auto">Tầm nhìn & Giá trị</div>
-          <h2 className="section-title">Giá Trị Cốt Lõi</h2>
-          <p className="section-subtitle mx-auto">
-            Kim chỉ nam giúp Ngọc Điền không ngừng vươn xa và giữ vững vị thế
-            trên thị trường.
-          </p>
-        </div>
-
-        <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8">
-            {coreValues.map((value, i) => (
-              <div
-                key={i}
-                className={`p-10 bg-white rounded-3xl shadow-warm-sm hover:shadow-warm-lg transition-all duration-500 group transform ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-                style={{ transitionDelay: `${i * 200}ms` }}
-              >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  {value.icon}
-                </div>
-                <h3 className="text-2xl font-black mb-4">{value.title}</h3>
-                <p className="text-text-secondary leading-relaxed">
-                  {value.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <FaqCard />
       </section>
-
+      <div className="bg-white p-8">
+        <OurStrengthCard />
+      </div>
       {/* Process Section */}
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="container-custom text-center mb-20">
-          <div className="section-tag mx-auto">Quy trình sản xuất</div>
-          <h2 className="section-title">Từ Cánh Đồng Đến Bàn Ăn</h2>
+          <SectionTag title="Quy trình 3 bước" />
+          <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
+            "Thử Thật – Nấu Thật"
+          </h2>
+          <p className="text-secondary-600">
+            Để tránh lãng phí thời gian của chủ quán, Cơm Lành áp dụng quy trình
+            thử nghiệm bài bản
+          </p>
         </div>
 
-        <div className="container-custom px-0 md:px-6">
+        <div className="max-w-[1200px] mx-auto w-full px-0 md:px-6">
           <div className="relative">
             {/* Timeline Line (Desktop) */}
             <div className="hidden lg:block absolute top-[120px] left-0 right-0 h-1 bg-divider z-0"></div>
 
-            <div className="grid lg:grid-cols-4 gap-12 text-center">
+            <div className="grid lg:grid-cols-3 gap-12 text-center">
               {processSteps.map((step, i) => (
                 <div
                   key={i}
                   className="relative z-10 flex flex-col items-center"
                 >
-                  <div className="w-20 h-20 rounded-full bg-primary border-4 border-primary text-white flex items-center justify-center font-black text-2xl mb-8 shadow-warm-md hover:scale-110 transition-transform">
+                  <div className="w-20 h-20 rounded-full bg-secondary-800 border-4 border-secondary-500 text-white flex items-center justify-center font-black text-2xl mb-8 shadow-warm-md hover:scale-110 transition-transform">
                     {step.step}
                   </div>
-                  <h4 className="text-xl font-black mb-4">{step.title}</h4>
-                  <p className="text-text-secondary text-[0.95rem] leading-relaxed px-4">
+                  <h4 className="text-xl text-secondary-800 font-black mb-4">
+                    {step.title}
+                  </h4>
+                  <p className="text-secondary-700 text-[0.95rem] leading-relaxed px-4">
                     {step.desc}
                   </p>
                 </div>
               ))}
             </div>
           </div>
+          <p className="text-secondary-600 mt-6">
+            <span className="font-bold">Mục tiêu:</span> Kiểm tra độ ngậm nước,
+            thời gian chín và chất lượng cơm khi nấu số lượng lớn để phục vụ
+            khách hàng thực tế.{' '}
+            <span className="font-bold text-red-500">*</span>
+          </p>
         </div>
 
         <div className="container-custom mt-24">

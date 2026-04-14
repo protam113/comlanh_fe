@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { articles } from '@/data/articles';
 import Link from 'next/link';
+import { PublicContainer } from '@/components/wrappers/public.container';
 
 export default function BlogList() {
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function BlogList() {
   return (
     <div className="pt-24 bg-white min-h-screen">
       {/* Breadcrumbs */}
-      <div className="bg-section-alt py-4 border-b border-divider">
+      <PublicContainer className="bg-section-alt mx-auto py-4 border-b border-divider">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-[0.85rem] font-bold text-text-muted uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">
@@ -27,9 +28,9 @@ export default function BlogList() {
             <span className="text-primary-dark">Tất cả bài viết</span>
           </nav>
         </div>
-      </div>
+      </PublicContainer>
 
-      <main className="container-custom py-16">
+      <PublicContainer className="mx-auto py-16">
         <div className="grid lg:grid-cols-[320px_1fr] gap-12 lg:gap-20">
           {/* Sidebar - Recent Posts */}
           <aside className="space-y-10 order-2 lg:order-1">
@@ -69,28 +70,6 @@ export default function BlogList() {
                   </Link>
                 ))}
               </div>
-            </div>
-
-            {/* Newsletter or Promo Banner placeholder */}
-            <div className="bg-primary rounded-2xl p-8 text-white relative overflow-hidden group">
-              <div className="absolute top-[-10%] right-[-10%] w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-1000"></div>
-              <h3 className="font-heading text-xl font-black mb-4 leading-tight relative z-10">
-                Đăng ký nhận
-                <br />
-                Kiến thức lúa gạo
-              </h3>
-              <p className="text-sm opacity-80 mb-6 font-medium relative z-10">
-                Cập nhật những mẹo nấu ăn và kiến thức dinh dưỡng mới nhất từ
-                chuyên gia Ngọc Điền.
-              </p>
-              <input
-                type="email"
-                placeholder="Email của bạn..."
-                className="w-full bg-white/20 border border-white/20 rounded-lg px-4 py-2 text-white placeholder:text-white/60 mb-3 outline-none focus:bg-white/30 transition-all"
-              />
-              <button className="w-full bg-white text-primary font-black py-2.5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                ĐĂNG KÝ NGAY
-              </button>
             </div>
           </aside>
 
@@ -205,7 +184,7 @@ export default function BlogList() {
             </div>
           </div>
         </div>
-      </main>
+      </PublicContainer>
     </div>
   );
 }

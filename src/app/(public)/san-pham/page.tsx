@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { products } from '@/data/products';
 import Link from 'next/link';
+import { PublicContainer } from '@/components/wrappers/public.container';
 
 export default function ProductList() {
   const [filter, setFilter] = useState('all');
@@ -34,7 +35,7 @@ export default function ProductList() {
       </section>
 
       {/* Main Content */}
-      <main className="container-custom py-20">
+      <PublicContainer className="py-20 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
           <h2 className="font-heading text-3xl font-black text-text-secondary">
             Tất cả sản phẩm
@@ -102,7 +103,7 @@ export default function ProductList() {
             </Link>
           ))}
         </div>
-      </main>
+      </PublicContainer>
     </div>
   );
 }
