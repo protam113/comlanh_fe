@@ -11,6 +11,8 @@ const navItems = [
     active: true,
   },
   { label: 'Giới thiệu', href: '/gioi-thieu' },
+  { label: 'Đối Tác', href: '/blogs' },
+
   {
     label: 'Sản phẩm',
     href: '/san-pham',

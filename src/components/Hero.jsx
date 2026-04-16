@@ -78,7 +78,7 @@ export default function Hero() {
                     className={`w-full h-full object-cover transition-transform duration-[6s] ease-linear ${isActive ? 'scale-110' : 'scale-100'}`}
                     style={{ opacity: 0.6 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+                  <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/50" />
                 </div>
 
                 {/* Minimalist Content with Staggered Animations */}
@@ -113,7 +113,7 @@ export default function Hero() {
 
         {/* Minimalist Scroll Indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
-          <div className="w-[1px] h-10 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse-slow" />
+          <div className="w-px h-10 bg-linear-to-b from-transparent via-white to-transparent animate-pulse-slow" />
         </div>
       </Swiper>
 

@@ -105,6 +105,7 @@ import {
   Save,
   Edit,
   Bookmark,
+  MapPin,
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -157,6 +158,7 @@ export const Arrows = {
 export const Icons = {
   Loader2,
   User,
+  MapPin,
   Save,
   AlertTriangle,
   Edit,
