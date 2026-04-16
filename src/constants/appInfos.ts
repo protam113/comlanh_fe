@@ -2,10 +2,12 @@ import type { Metadata, Viewport } from 'next';
 
 export const appInfo = {
   logo: process.env.NEXT_PUBLIC_SITE_LOGO || '/icons/light_c.svg',
-  title: process.env.NEXT_PUBLIC_SITE_TITLE || 'Cơm Lành',
+  title:
+    process.env.NEXT_PUBLIC_SITE_TITLE ||
+    'Cơm Lành - Nhà Cung Cấp Gạo Sỉ Uy Tín Tại TPHCM',
   description:
     process.env.NEXT_PUBLIC_SITE_DESCRIPTION ||
-    'Cơm Lành đồng hành cùng chủ quán tìm ra loại Trà phù hợp nhất cho nội cơm kinh doanh thông qua chương trình thử mẫu nhỏ - nấu mẫu lớn.',
+    'Cơm Lành - Đối tác tin cậy của hàng nghìn quán ăn. Cung cấp gạo chất lượng cao với quy trình "Thử Thật - Nấu Thật". Gạo sạch, an toàn, phù hợp cho kinh doanh.',
   domain: process.env.NEXT_PUBLIC_SITE_DOMAIN || 'https://gaolanh.com',
   ogImage: process.env.NEXT_PUBLIC_OG_IMAGE || '/imgs/vsv.webp',
   themeColor: process.env.NEXT_PUBLIC_THEME_COLOR || '#ffffff',
