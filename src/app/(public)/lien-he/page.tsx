@@ -2,6 +2,7 @@
 
 import { Icons } from '@/assets';
 import { SectionTag } from '@/components/design/section.design';
+import Timeline from '@/components/timeline';
 import { PublicContainer } from '@/components/wrappers/public.container';
 import { useEffect } from 'react';
 
@@ -43,7 +44,6 @@ export default function Contact() {
       <section className="py-24">
         <PublicContainer className="mx-auto">
           <div className="grid lg:grid-cols-2 gap-20">
-            {/* Contact Info */}
             {/* Contact Info */}
             <div className="space-y-8 md:space-y-12">
               <div>
@@ -113,78 +113,78 @@ export default function Contact() {
               </div>
 
               {/* Box */}
-              <div className="p-6 md:p-10 bg-secondary-50 rounded-3xl md:rounded-[2.5rem] border border-divider">
-                <h3 className="text-lg md:text-xl font-heading font-black text-main mb-4 md:mb-6 italic leading-snug">
-                  Cơm Lành - "ỔN ĐỊNH TỪ TỪNG HẠT GẠO ĐẾN TỪNG LỢI NHUẬN CỦA ĐỐI
-                  TÁC"
-                </h3>
-
-                <p className="text-sm md:text-base text-secondary-800 leading-relaxed">
-                  <span className="font-bold">Sứ mệnh của chúng tôi:</span> Trở
-                  thành{' '}
-                  <span className="font-bold">
-                    Nhà phân phối gạo sỉ số 1 tại TP. Hồ Chí Minh
-                  </span>
-                  , tự hào là cầu nối vững chắc đưa những hạt gạo tinh túy nhất
-                  từ cánh đồng Đồng bằng sông Cửu Long đến tận tay những người
-                  đầu bếp và chủ nhà hàng.
-                </p>
-              </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-12 rounded-[3.5rem] shadow-warm-2xl border border-divider/50">
-              <h3 className="text-2xl font-heading font-black text-text-secondary mb-10">
+            <div className="bg-white p-8 rounded-2xl shadow-warm-2xl border border-divider/50">
+              <h3 className="text-2xl font-heading font-black text-secondary-600 mb-6">
                 Gửi lời nhắn cho chúng tôi
               </h3>
               <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-text-muted ml-1">
-                      Họ và tên
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Nguyễn Văn A"
-                      className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-black uppercase tracking-widest text-text-muted ml-1">
-                      Số điện thoại
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="0xxx-xxx-xxx"
-                      className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase tracking-widest text-text-muted ml-1">
-                    Email
+                    Họ và tên
                   </label>
                   <input
-                    type="email"
-                    placeholder="example@gmail.com"
+                    type="text"
+                    placeholder="Nguyễn Văn A"
                     className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-xs font-black uppercase tracking-widest text-text-muted ml-1">
-                    Lời nhắn của bạn
+                    Số điện thoại
                   </label>
-                  <textarea
-                    placeholder="Bạn cần tư vấn về sản phẩm nào?..."
-                    rows={4}
-                    className="w-full bg-section-alt border border-divider rounded-3xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all resize-none"
-                  ></textarea>
+                  <input
+                    type="tel"
+                    placeholder="0xxx-xxx-xxx"
+                    className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
+                  />
                 </div>
-                <button className="w-full bg-primary text-white font-black py-5 rounded-3xl shadow-warm-lg hover:bg-primary-dark hover:-translate-y-1 transition-all duration-300">
-                  GỬI YÊU CẦU NGAY
-                </button>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <button
+                    type="submit"
+                    className="bg-primary text-white font-black py-5 rounded-3xl shadow-warm-lg hover:bg-primary-dark hover:-translate-y-1 transition-all duration-300"
+                  >
+                    GỬI YÊU CẦU NGAY
+                  </button>
+                  <a
+                    href="tel:0559955212"
+                    className="bg-green-600 text-white font-black py-5 rounded-3xl shadow-warm-lg hover:bg-green-700 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    <Icons.PhoneCall className="w-5 h-5" />
+                    GỌI NGAY
+                  </a>
+                </div>
               </form>
             </div>
+          </div>
+        </PublicContainer>
+        <PublicContainer className="mx-auto mt-8">
+          <div className="bg-white p-12 ">
+            <div className="container-custom text-center px-4">
+              <h1
+                className="font-heading
+      text-lh sm:text-xl md:text-3xl lg:text-4xl
+      font-black text-secondary-800
+      mt-4 md:mt-6
+      uppercase tracking-wide md:tracking-wider leading-tight"
+              >
+                Quy Trình 3 Bước{' '}
+              </h1>
+
+              <p
+                className="text-base sm:text-lg md:text-xl
+      text-secondary-700
+      mt-4 md:mt-6
+      max-w-lg md:max-w-2xl mx-auto
+      font-medium leading-relaxed"
+              >
+                Để tránh lãng phí thời gian của chủ quán, Cơm Lành áp dụng quy
+                trình thử nghiệm bài bản:
+              </p>
+            </div>
+            <Timeline />
           </div>
         </PublicContainer>
       </section>

@@ -1,43 +1,37 @@
 'use client';
 
+import { useState } from 'react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { useIntersection } from '@/hooks/useIntersection';
 import { PublicContainer } from './wrappers/public.container';
 import { SectionTag } from './design/section.design';
 
-const categories = [
+const cards = [
   {
-    id: 'gao-ban-chay',
-    name: 'Gạo bán chạy',
-    ribbon: 'Ăn nhiều Nhất',
-    img: '/cat_rice_white.png',
+    title: 'NHÀ HÀNG, QUÁN ĂN',
+    image: '/images/galleries/2.webp',
   },
   {
-    id: 'gao-nep',
-    name: 'Gạo Nếp',
-    ribbon: 'Ăn Đổi Gió',
-    img: '/cat_rice_white.png',
+    title: 'TRƯỜNG HỌC, BỆNH VIỆN, XÍ NGHIỆP',
+    image: '/images/thien-nguyen.png',
   },
   {
-    id: 'gao-lut',
-    name: 'Gạo Lứt',
-    ribbon: 'Ăn Kiêng',
-    img: '/cat_rice_brown.png',
+    title: 'XƯỞNG CHẾ BIẾN & SẢN XUẤT TỪ GẠO',
+    image: '/images/galleries/2.webp',
   },
   {
-    id: 'gao-trang',
-    name: 'Gạo Trắng',
-    ribbon: 'Ăn Đủ chất',
-    img: '/cat_rice_white.png',
-  },
-  {
-    id: 'gao-nhat',
-    name: 'Gạo Nhật',
-    ribbon: 'Ăn nhanh Ăn vui',
-    img: '/cat_rice_white.png',
+    title: 'GẠO THIỆN NGUYỆN',
+    image: '/images/thien-nguyen.png',
   },
 ];
 
 export default function Categories() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [ref, isVisible] = useIntersection({ threshold: 0.1, once: true });
 
   return (
@@ -51,64 +45,73 @@ export default function Categories() {
           className={`text-center mb-24 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div className="section-tag bg-primary/10! text-primary! transform hover:scale-105 transition-transform duration-300"></div>
-          <SectionTag title="Tinh hoa lúa gạo" />
-          <h1 className="text-4xl text-secondary-700 font-bold mt-4 mb-4">
-            Danh mục Cơm Lành
+          <SectionTag title="Đối Tác" />
+          <h1 className="text-4xl uppercase text-secondary-700 font-bold mt-4 mb-4">
+            tệp khách hàng
           </h1>
-          <div className="w-16 h-1 bg-linear-to-r from-transparent via-primary-800/40 to-transparent mx-auto rounded-full"></div>
+          <div className="w-16 h-1 bg-linear-to-r from-transparent via-secondary-700/40 to-transparent mx-auto rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 lg:gap-16">
-          {categories.map((cat, idx) => (
-            <article
-              key={cat.id}
-              className={`group relative flex flex-col items-center transition-all duration-700 ${
-                isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-20'
-              }`}
-              style={{ transitionDelay: `${idx * 150}ms` }}
-            >
-              {/* Image & Spotlight Area */}
-              <div className="relative w-full max-w-[200px] mx-auto mb-10">
-                {/* Floating Image Container */}
-                <div
-                  className="relative z-10 animate-float-slow"
-                  style={{ animationDelay: `${idx * 0.5}s` }}
-                >
-                  <div className="w-full aspect-square rounded-md bg-white shadow-2xl overflow-hidden p-1 border border-white transition-transform duration-500 group-hover:scale-110">
-                    <img
-                      src={cat.img}
-                      alt={cat.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                    />
+        <Swiper
+          modules={[Navigation]}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next',
+          }}
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 4 },
+          }}
+          className="relative group"
+        >
+          {cards.map((card, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                className="relative h-[400px] rounded-2xl overflow-hidden cursor-pointer"
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+              >
+                <Image
+                  src={card.image || '/placeholder.svg'}
+                  alt={card.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[#33553d]/90 via-[#33553d]/40 to-transparent" />
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{
+                    backgroundColor:
+                      hoveredIndex === index
+                        ? 'rgba(51, 85, 61, 0.2)'
+                        : 'rgba(51, 85, 61, 0)',
+                    backdropFilter:
+                      hoveredIndex === index ? 'blur(2px)' : 'blur(0px)',
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                  <span></span>
+                  <div>
+                    <motion.h2
+                      className="text-xl font-bold text-secondary-50 mb-2"
+                      animate={{
+                        scale: hoveredIndex === index ? 1.1 : 1,
+                        y: hoveredIndex === index ? -5 : 0,
+                      }}
+                    >
+                      {card.title}
+                    </motion.h2>
                   </div>
                 </div>
-              </div>
-
-              {/* Text Information */}
-              <div className="relative z-10 text-center flex flex-col items-center">
-                <span className="text-[0.65rem] font-bold text-primary/60 uppercase tracking-[0.2em] mb-2 scale-90 group-hover:scale-100 transition-transform">
-                  Chất Lượng Cao
-                </span>
-                <h3 className="font-heading text-xl font-extrabold text-secondary-700 group-hover:text-primary-800 transition-colors duration-300">
-                  {cat.name}
-                </h3>
-
-                {/* Elegant Underline Indicator */}
-                <div
-                  className={`mt-3 h-0.5 bg-primary transition-all duration-500 ${cat.isActive ? 'w-12 opacity-100' : 'w-0 opacity-0 group-hover:w-8 group-hover:opacity-60'}`}
-                ></div>
-              </div>
-
-              {/* Active Corner Accent */}
-              {cat.isActive && (
-                <div className="absolute top-[-10px] left-[-10px] w-6 h-6 border-t-2 border-l-2 border-primary/20 rounded-tl-xl pointer-events-none"></div>
-              )}
-            </article>
+              </motion.div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </PublicContainer>
     </section>
   );

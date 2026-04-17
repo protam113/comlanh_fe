@@ -128,6 +128,24 @@ export const TikTok = ({
   />
 );
 
+export const Facebook = ({
+  className,
+  width = 24,
+  height = 24,
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+}) => (
+  <Image
+    src="/icons/facebook.svg"
+    alt="TikTok"
+    width={width}
+    height={height}
+    className={className}
+  />
+);
+
 export const Zalo = ({
   className,
   width = 24,
@@ -146,6 +164,9 @@ export const Zalo = ({
   />
 );
 
+// Aliases for deprecated icons
+export const FacebookIcon = Facebook;
+
 export const Arrows = {
   ArrowRight,
   ArrowUp,
@@ -158,11 +179,11 @@ export const Arrows = {
 export const Icons = {
   Loader2,
   User,
-  MapPin,
   Save,
   AlertTriangle,
   Edit,
   ChevronRight,
+  MapPin,
   PhoneCall,
   CheckCheck,
   Copy,
@@ -181,6 +202,7 @@ export const Icons = {
   BrickWallShield,
   EllipsisVertical,
   HeartPulseIcon,
+  Facebook,
   ChevronUp,
   ChevronDown,
   Monitor,
@@ -189,8 +211,7 @@ export const Icons = {
   UserRound,
   Delete,
   Replace,
-  // FacebookIcon,
-  // InstagramIcon,
+  FacebookIcon,
   TikTok,
   Zalo,
   Mail,
