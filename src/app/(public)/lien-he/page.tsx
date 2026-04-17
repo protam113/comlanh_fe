@@ -24,7 +24,7 @@ export default function Contact() {
       mt-4 md:mt-6
       uppercase tracking-wide md:tracking-wider leading-tight"
           >
-            Liên hệ Cơm Lành
+            Liên Hệ Tư Ván Loại Gạo Phù Hợp
           </h1>
 
           <p

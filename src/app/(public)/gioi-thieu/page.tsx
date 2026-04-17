@@ -68,7 +68,7 @@ export default function About() {
           </div>
           <h1 className="text-2xl md:text-5xl font-heading font-black mb-8 leading-tight">
             <span className="text-primary-bg opacity-90 italic">
-              KHÔNG CẦN GẠO ĐẮT NHẤT – CHỈ CẦN GẠO PHÙ HỢP NHẤT
+              Cơm Lành - 30 Năm Kinh Nghiệm Gạo Sỉ
             </span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-white/80 leading-relaxed font-medium">
