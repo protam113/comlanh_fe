@@ -41,9 +41,10 @@ export const IntroCard = () => {
                 cánh đồng Đồng bằng sông Cửu Long đến tận tay những người đầu
                 bếp và chủ nhà hàng.
               </p>
-              <div className="pt-4 border-l-4 border-primary pl-6 italic font-medium text-secondary-800">
-                Đừng để "gạo không tên" làm lung lay uy tín cả một thương hiệu.
-              </div>
+              <p className="bg-beige-50 border-l-4 border-primary pl-6 py-4 italic font-medium text-secondary-800">
+                <span className="font-bold text-main">Cơm Lành</span> Không bán
+                gạo đắt, chỉ bán gạo phù hợp
+              </p>
             </div>
           </div>
 
