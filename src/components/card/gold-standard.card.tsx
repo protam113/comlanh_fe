@@ -5,18 +5,18 @@ import { PublicContainer } from '../wrappers/public.container';
 const standard = [
   {
     step: '01',
-    title: ' An toàn pháp lý',
-    desc: 'Không còn nỗi lo thiếu giấy tờ khi bị kiểm tra đột xuất. Hồ sơ nguồn gốc rõ ràng giúp nhà hàng duy trì hoạt động ổn định.',
+    title: 'An toàn pháp lý',
+    desc: 'Với bộ hồ sơ nguồn gốc gạo rõ ràng và hóa đơn minh bạch, Cơm Lành giúp đối tác luôn yên tâm vận hành.',
   },
   {
     step: '02',
-    title: 'Bảo vệ uy tín',
-    desc: 'Thực khách ngày càng thông thái. Một bao gạo có thương hiệu, có địa chỉ rõ ràng sẽ xây dựng niềm tin lớn hơn gấp nhiều lần những bao gạo trắng không nhãn mác.',
+    title: 'Giá Ổn Định',
+    desc: 'TNói không với việc tăng giá đột ngột. Với chính sách báo trước 14 ngày, Cơm Lành giúp đối tác nắm thế chủ động trong tài chính.',
   },
   {
     step: '03',
-    title: 'Chất lượng ổn định',
-    desc: 'Gạo có nguồn gốc luôn đi kèm với sự cam kết về chất lượng. Không có chuyện "lô này ngon, lô sau dở" do gom hàng trôi nổi.',
+    title: 'Tối ưu lợi nhuận',
+    desc: 'Nhờ mô hình vận hành tinh gọn và quy trình phân phối trực tiếp không qua trung gian, Cơm Lành mang đến mức giá sỉ ưu đãi hơn 10-15% so với thị trường. ',
   },
 ];
 
