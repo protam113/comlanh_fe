@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { SectionTag } from '../design/section.design';
 import { PublicContainer } from '../wrappers/public.container';
@@ -6,17 +8,37 @@ const standard = [
   {
     step: '01',
     title: 'An toàn pháp lý',
-    desc: 'Với bộ hồ sơ nguồn gốc gạo rõ ràng và hóa đơn minh bạch, Cơm Lành giúp đối tác luôn yên tâm vận hành.',
+    desc: (
+      <>
+        Với bộ hồ sơ{' '}
+        <span className="font-bold">
+          nguồn gốc gạo rõ ràng và hóa đơn minh bạch
+        </span>
+        , Cơm Lành giúp đối tác luôn yên tâm vận hành.
+      </>
+    ),
   },
   {
     step: '02',
     title: 'Giá Ổn Định',
-    desc: 'TNói không với việc tăng giá đột ngột. Với chính sách báo trước 14 ngày, Cơm Lành giúp đối tác nắm thế chủ động trong tài chính.',
+    desc: (
+      <>
+        Nói không với việc tăng giá đột ngột. Với chính sách báo trước{' '}
+        <span className="font-bold">14 ngày</span>, Cơm Lành giúp đối tác nắm
+        thế chủ động trong tài chính.
+      </>
+    ),
   },
   {
     step: '03',
     title: 'Tối ưu lợi nhuận',
-    desc: 'Nhờ mô hình vận hành tinh gọn và quy trình phân phối trực tiếp không qua trung gian, Cơm Lành mang đến mức giá sỉ ưu đãi hơn 10-15% so với thị trường. ',
+    desc: (
+      <>
+        Nhờ mô hình vận hành tinh gọn và quy trình phân phối trực tiếp không qua
+        trung gian, Cơm Lành mang đến mức giá sỉ{' '}
+        <span className="font-bold">ưu đãi hơn 10-15% so với thị trường</span>.
+      </>
+    ),
   },
 ];
 
