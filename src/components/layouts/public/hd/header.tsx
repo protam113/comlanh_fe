@@ -11,7 +11,23 @@ const navItems = [
     active: true,
   },
   { label: 'Giới thiệu', href: '/gioi-thieu' },
-  { label: 'Đối Tác', href: '/blogs' },
+  {
+    label: 'Đối Tác',
+    href: '/blogs',
+    dropdown: [
+      { label: 'Tất cả', href: '/san-pham' },
+      { label: 'NHÀ HÀNG, QUÁN ĂN', href: '/san-pham/st25-harmony' },
+      {
+        label: 'TRƯỜNG HỌC, BỆNH VIỆN, XÍ NGHIỆP',
+        href: '/san-pham/gao-lut-do',
+      },
+      {
+        label: 'XƯỞNG CHẾ BIẾN & SẢN XUẤT TỪ GẠO',
+        href: '/san-pham/gao-nep-cai-hoa-vang',
+      },
+      { label: 'GẠO THIỆN NGUYỆN', href: '/san-pham/gao-nep-cai-hoa-vang' },
+    ],
+  },
 
   {
     label: 'Sản phẩm',
@@ -109,7 +125,7 @@ export default function Header() {
                       <Link
                         key={sub.label}
                         href={sub.href}
-                        className="flex items-center gap-3 px-3.5 py-2.5 text-[0.875rem] text-text-secondary rounded-sm hover:text-primary hover:bg-beige transition-colors"
+                        className="flex items-center gap-3 px-3.5 py-2.5 text-[0.875rem] text-main rounded-sm hover:text-secondary-700 hover:bg-beige-50 transition-colors"
                       >
                         {sub.label}
                       </Link>
@@ -175,7 +191,7 @@ export default function Header() {
               className={`px-4 py-3 rounded-sm text-[0.95rem] font-medium transition-all ${
                 item.active
                   ? 'text-primary bg-primary-bg'
-                  : 'text-text active:bg-beige'
+                  : 'text-main active:bg-beige'
               }`}
               onClick={() => setMobileOpen(false)}
             >

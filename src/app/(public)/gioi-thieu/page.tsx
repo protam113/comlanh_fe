@@ -15,7 +15,7 @@ import { GallerySection } from '@/components/card/gallery.card';
 const processSteps = [
   {
     step: '01',
-    title: ' Gửi mẫu thử đa dạng (Mẫu nhỏ)',
+    title: 'Gửi mẫu thử đa dạng (Mẫu nhỏ)',
     desc: 'Sau khi nhận thông tin về mô hình quán, chúng tôi sẽ gửi bộ mẫu thử gồm 3-5 loại gạo khác nhau phù hợp với phân khúc giá anh chị mong muốn. Anh chị có thể xem mặt gạo, ngửi mùi thơm và nấu thử bát nhỏ để kiểm tra độ dẻo/nở.',
   },
   {
@@ -130,13 +130,22 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            <p className="text-secondary-600 mt-6">
+              <span className="font-bold">Mục tiêu:</span> Kiểm tra độ ngậm
+              nước, thời gian chín và chất lượng cơm khi nấu số lượng lớn để
+              phục vụ khách hàng thực tế.{' '}
+              <span className="font-bold text-red-500">*</span>
+            </p>
           </div>
-          <p className="text-secondary-600 mt-6">
-            <span className="font-bold">Mục tiêu:</span> Kiểm tra độ ngậm nước,
-            thời gian chín và chất lượng cơm khi nấu số lượng lớn để phục vụ
-            khách hàng thực tế.{' '}
-            <span className="font-bold text-red-500">*</span>
-          </p>
+          <div className="w-full mx-auto flex justify-center mt-12">
+            <a
+              href="/lien-he"
+              className="bg-main border-2 border-white text-white px-10 py-4 rounded-full font-black hover:bg-primary-700 hover:text-white hover:-translate-y-1 transition-all"
+            >
+              Nhận ngay mẫu thử theo quy trình 3 bước{' '}
+            </a>
+          </div>
         </div>
 
         <PublicContainer className="mx-auto mt-24">
