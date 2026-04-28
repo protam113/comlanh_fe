@@ -18,7 +18,7 @@ export default function BlogList() {
   return (
     <div className="pt-24 bg-white min-h-screen">
       {/* Breadcrumbs */}
-      <PublicContainer className="bg-section-alt mx-auto py-4 border-b border-divider">
+      <PublicContainer className="bg-section-alt mx-auto py-4 border-b  border-gray-200">
         <div className="container-custom">
           <nav className="flex items-center gap-2 text-[0.85rem] font-bold text-text-muted uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">
@@ -34,9 +34,9 @@ export default function BlogList() {
         <div className="grid lg:grid-cols-[320px_1fr] gap-12 lg:gap-20">
           {/* Sidebar - Recent Posts */}
           <aside className="space-y-10 order-2 lg:order-1">
-            <div className="bg-white rounded-2xl border border-divider overflow-hidden shadow-warm-sm">
-              <div className="p-6 border-b border-divider bg-section-alt">
-                <h3 className="font-heading text-lg font-extrabold text-text-secondary uppercase tracking-wider text-center">
+            <div className="bg-white rounded-2xl border  border-gray-200 overflow-hidden shadow-warm-sm">
+              <div className="p-6 border-b  border-gray-200 bg-section-alt">
+                <h3 className=" text-lg font-extrabold text-text-secondary uppercase tracking-wider text-center">
                   Bài viết mới nhất
                 </h3>
               </div>
@@ -75,7 +75,7 @@ export default function BlogList() {
 
           {/* Main List */}
           <div className="order-1 lg:order-2">
-            <h1 className="font-heading text-3xl md:text-4xl font-black text-text-secondary mb-12 flex items-center gap-4">
+            <h1 className=" text-3xl md:text-4xl font-black text-text-secondary mb-12 flex items-center gap-4">
               Tất cả bài viết
               <div className="h-1 flex-1 bg-divider/40 rounded-full hidden sm:block"></div>
             </h1>
@@ -110,7 +110,7 @@ export default function BlogList() {
                       </time>
                     </div>
 
-                    <h2 className="font-heading text-2xl md:text-3xl font-black text-text-secondary mb-4 group-hover:text-primary transition-colors duration-300 leading-tight">
+                    <h2 className=" text-2xl md:text-3xl font-black text-text-secondary mb-4 group-hover:text-primary transition-colors duration-300 leading-tight">
                       <Link href={`/tin-tuc/${article.id}`}>
                         {article.title}
                       </Link>
@@ -153,7 +153,7 @@ export default function BlogList() {
             </div>
 
             {/* Pagination Placeholder */}
-            <div className="mt-20 pt-10 border-t border-divider flex justify-center">
+            <div className="mt-20 pt-10 border-t  border-gray-200 flex justify-center">
               <nav className="flex gap-2">
                 <button className="w-10 h-10 rounded-lg flex items-center justify-center font-bold bg-primary text-white shadow-lg">
                   1

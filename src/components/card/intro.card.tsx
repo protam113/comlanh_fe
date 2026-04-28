@@ -22,7 +22,7 @@ export const IntroCard = () => {
           >
             <SectionTag title="Câu chuyện thương hiệu" />
 
-            <h2 className="font-heading text-4xl font-bold text-secondary-600 leading-[1.15] mb-5">
+            <h2 className=" text-4xl font-bold text-secondary-600 leading-[1.15] mb-5">
               <span className="text-secondary-800 text-6xl">CƠM LÀNH</span>{' '}
               <br />
               ỔN ĐỊNH TỪ TỪNG HẠT GẠO ĐẾN TỪNG LỢI NHUẬN CỦA ĐỐI TÁC

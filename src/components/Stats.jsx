@@ -52,7 +52,7 @@ export default function Stats() {
               className="flex flex-col gap-2 transform transition-all duration-700 delay-[i*100ms] data-[visible=true]:opacity-100 data-[visible=true]:translate-y-0 opacity-0 translate-y-4"
               data-visible={counted}
             >
-              <div className="text-2xl md:text-3xl font-extrabold text-white font-heading mb-1">
+              <div className="text-2xl md:text-3xl font-extrabold text-white  mb-1">
                 <span>{stat.title}</span>
               </div>
               <div className="text-[12px] text-white/90 font-medium leading-normal whitespace-pre-line uppercase tracking-wide">

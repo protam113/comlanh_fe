@@ -44,7 +44,7 @@ export default function Hero() {
   return (
     <section
       id="hero-section"
-      className="relative h-[85vh] min-h-[600px] w-full bg-primary-dark select-none"
+      className="relative h-[85vh] min-h-[600px] w-full bg-primary-800 select-none"
     >
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
@@ -88,7 +88,7 @@ export default function Hero() {
 
                     {/* Staggered Heading */}
                     <h1
-                      className={`font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-8 tracking-tight transition-all duration-1000 delay-300 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                      className={`text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.15] mb-8 tracking-tight transition-all duration-1000 delay-300 ${isActive ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                     >
                       {slide.title}
                     </h1>

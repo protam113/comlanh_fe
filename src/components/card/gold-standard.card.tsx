@@ -47,7 +47,7 @@ export const GoldStandardCard = () => {
     <section className="py-32 bg-white relative overflow-hidden">
       <div className="container-custom text-center mb-20">
         <SectionTag title="Tiêu Chí Vàng" />
-        <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
+        <h2 className=" text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
           Ba trụ cột "Vàng" cho kinh doanh bền vững
         </h2>
       </div>

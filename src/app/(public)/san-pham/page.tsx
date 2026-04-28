@@ -20,7 +20,7 @@ export default function ProductList() {
   // Group and Sort logic would go here
 
   return (
-    <div className="pt-20 bg-white min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Dynamic Hero Banner */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <img
@@ -29,7 +29,7 @@ export default function ProductList() {
           className="absolute inset-0 w-full h-full object-cover brightness-[0.7]"
         />
         <div className="absolute inset-0 bg-black/20"></div>
-        <h1 className="relative z-10 font-heading text-6xl md:text-7xl font-black text-white uppercase tracking-[0.2em] drop-shadow-lg">
+        <h1 className="relative z-10  text-6xl md:text-6xl font-black text-white uppercase tracking-[0.2em] drop-shadow-lg">
           SẢN PHẨM
         </h1>
       </section>
@@ -37,13 +37,13 @@ export default function ProductList() {
       {/* Main Content */}
       <PublicContainer className="py-20 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-          <h2 className="font-heading text-3xl font-black text-text-secondary">
+          <h2 className=" text-3xl font-black text-text-secondary">
             Tất cả sản phẩm
           </h2>
 
           <div className="flex items-center gap-4">
             <select
-              className="bg-section-alt border border-divider rounded-full px-6 py-2.5 text-sm font-bold text-text-secondary outline-none focus:border-primary transition-colors cursor-pointer"
+              className="bg-section-alt border  border-gray-200 border-gray-200 rounded-full px-6 py-2.5 text-sm font-bold text-text-secondary outline-none focus:border-primary transition-colors cursor-pointer"
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
             >
@@ -54,7 +54,7 @@ export default function ProductList() {
             </select>
 
             <select
-              className="bg-section-alt border border-divider rounded-full px-6 py-2.5 text-sm font-bold text-text-secondary outline-none focus:border-primary transition-colors cursor-pointer"
+              className="bg-section-alt border  border-gray-200 border-gray-200 rounded-full px-6 py-2.5 text-sm font-bold text-text-secondary outline-none focus:border-primary transition-colors cursor-pointer"
               value={sort}
               onChange={(e) => setSort(e.target.value)}
             >
@@ -72,7 +72,7 @@ export default function ProductList() {
             <Link
               key={product.id}
               href={`/san-pham/${product.id}`}
-              className="group flex flex-col items-center bg-section-alt/40 rounded-3xl p-8 border border-divider/50 hover:border-primary/30 hover:shadow-warm-xl transition-all duration-500 hover:-translate-y-2"
+              className="group flex flex-col items-center bg-section-alt/40 rounded-3xl p-8 border  border-gray-200 hover:border-primary/30 hover:shadow-warm-xl transition-all duration-500 hover:-translate-y-2"
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
               <div className="relative aspect-square w-full mb-8 flex items-center justify-center">
@@ -84,7 +84,7 @@ export default function ProductList() {
               </div>
 
               <div className="text-center flex flex-col items-center flex-1">
-                <h3 className="font-heading text-lg font-black text-text-secondary mb-4 leading-tight group-hover:text-primary transition-colors h-14 flex items-center">
+                <h3 className=" text-lg font-black text-text-secondary mb-4 leading-tight group-hover:text-primary transition-colors h-14 flex items-center">
                   {product.name}
                 </h3>
 

@@ -120,7 +120,7 @@ export default function Header() {
                   )}
                 </Link>
                 {item.dropdown && (
-                  <div className="absolute top-[calc(100%+8px)] left-0 min-w-[220px] bg-white rounded-md shadow-warm-lg border border-divider p-2 opacity-0 invisible -translate-y-2 group-hover/item:opacity-100 group-hover/item:visible group-hover/item:translate-y-0 transition-all z-50">
+                  <div className="absolute top-[calc(100%+8px)] left-0 min-w-[220px] bg-white rounded-md shadow-warm-lg border  border-gray-200 p-2 opacity-0 invisible -translate-y-2 group-hover/item:opacity-100 group-hover/item:visible group-hover/item:translate-y-0 transition-all z-50">
                     {item.dropdown.map((sub) => (
                       <Link
                         key={sub.label}
@@ -147,7 +147,7 @@ export default function Header() {
 
             <button
               id="mobile-menu-btn"
-              className="lg:hidden w-[38px] h-[38px] rounded-sm border border-divider flex items-center justify-center text-text cursor-pointer"
+              className="lg:hidden w-[38px] h-[38px] rounded-sm border  border-gray-200 flex items-center justify-center text-text cursor-pointer"
               aria-label="Mở menu"
               onClick={() => setMobileOpen(!mobileOpen)}
             >
@@ -181,7 +181,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 border-t border-divider ${mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+        className={`lg:hidden overflow-hidden transition-all duration-300 border-t  border-gray-200 ${mobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="bg-white p-4 pb-6 flex flex-col gap-1">
           {navItems.map((item) => (

@@ -227,7 +227,7 @@ export function GallerySection() {
       {/* Tagline Section */}
       <div className="px-6 pt-16 pb-16 md:pt-32 md:px-12 md:pb-28 lg:px-20 lg:pt-56 lg:pb-44">
         <p className="mx-auto max-w-2xl text-center text-xl leading-relaxed text-main md:text-2xl lg:text-[2.5rem] lg:leading-snug">
-          <span className="font-bold font-heading">Cơm Lành</span>
+          <span className="font-bold ">Cơm Lành</span>
           <br />
           <span className="text-secondary-800 text-base md:text-lg">
             ỔN ĐỊNH TỪ TỪNG HẠT GẠO ĐẾN TỪNG LỢI NHUẬN CỦA ĐỐI TÁC

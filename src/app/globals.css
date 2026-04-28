@@ -1,13 +1,30 @@
 @import 'tailwindcss';
 
+/* Google Sans — Variable fonts (ưu tiên dùng) */
+@font-face {
+  font-family: 'Google Sans';
+  src: url('/font/GoogleSans-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('/font/GoogleSans-Italic-VariableFont.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ============================================================
    SINGLE SOURCE OF TRUTH — Chỉ sửa ở đây là xong tất cả
    ============================================================ */
 :root {
   --radius: 0.625rem;
 
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Lora', serif;
+  --font-body: 'Google Sans', sans-serif;
+  --: 'Google Sans', sans-serif;
 
   /* ---------- Main ---------- */
   --main: #33553d;
@@ -278,8 +295,8 @@
 
   /* Font families */
   --font-family-logo-font: 'LogoFont', sans-serif;
-  --font-family-body: 'Inter', sans-serif;
-  --font-family-heading: 'Lora', serif;
+  --font-family-body: 'Google Sans', sans-serif;
+  --font-family-heading: 'Google Sans', sans-serif;
 
   --animate-infinite-scroll: marquee 25s linear infinite;
 
@@ -292,13 +309,8 @@
   --animate-infinite-scroll: infinite-scroll 25s linear infinite;
 }
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-
   body {
-    @apply bg-background;
-    font-family: var(--font-body);
+    font-family: var(--font-family-body);
   }
   h1,
   h2,
@@ -306,10 +318,9 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading);
+    font-family: var(--font-family-heading);
   }
 }
-
 /* Keyframes from old config */
 @keyframes bg-position {
   0% {
@@ -492,7 +503,7 @@ body {
   height: 128px;
 }
 
-.font-heading {
+. {
   font-family: 'Noto Serif', serif;
 }
 /* src/components/CustomCursor.css */

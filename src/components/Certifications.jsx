@@ -110,7 +110,7 @@ export default function Certifications() {
           <div className="max-w-xl">
             <SectionTag title="Chứng nhận & Tiêu chuẩn" />
 
-            <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
+            <h2 className=" text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
               Chất Lượng Được
               <br />
               Kiểm Chứng Độc Lập
@@ -174,7 +174,7 @@ export default function Certifications() {
                   {cert.icon}
                 </div>
                 <div>
-                  <div className="font-heading text-xl font-black text-text-secondary mb-2">
+                  <div className=" text-xl font-black text-text-secondary mb-2">
                     {cert.name}
                   </div>
                   <div className="text-[0.75rem] text-text-muted leading-relaxed font-bold uppercase tracking-widest px-2">

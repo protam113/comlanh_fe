@@ -5,7 +5,7 @@ export const CtaCard = () => {
     <section className="py-24 bg-secondary-600 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[40%] h-full bg-white/5 skew-x-[-20deg] translate-x-20"></div>
       <div className="container-custom relative z-10 text-center">
-        <h2 className="text-4xl md:text-5xl font-heading font-black text-white mb-8">
+        <h2 className="text-4xl md:text-5xl  font-black text-white mb-8">
           Cùng Cơm Lành Nâng Tầm <br />
           Bữa Cơm Việt
         </h2>

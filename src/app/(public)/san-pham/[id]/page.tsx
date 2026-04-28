@@ -37,7 +37,7 @@ export default function ProductDetail() {
   return (
     <div className="pt-24 bg-white">
       {/* Breadcrumbs */}
-      <div className="bg-section-alt py-3 border-b border-divider">
+      <div className="bg-section-alt py-3 border-b  border-gray-200">
         <PublicContainer className="container-custom">
           <nav className="flex items-center gap-2 text-[0.8rem] font-bold text-text-muted uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">
@@ -64,7 +64,7 @@ export default function ProductDetail() {
               <button
                 key={i}
                 onClick={() => setActiveImg(img)}
-                className={`w-full aspect-square p-2 border rounded-xl transition-all ${activeImg === img ? 'border-primary shadow-sm' : 'border-divider hover:border-primary/40'}`}
+                className={`w-full aspect-square p-2 border rounded-xl transition-all ${activeImg === img ? 'border-primary shadow-sm' : ' border-gray-200 hover:border-primary/40'}`}
               >
                 <img
                   src={img}
@@ -76,7 +76,7 @@ export default function ProductDetail() {
           </div>
 
           {/* Main Product Image */}
-          <div className="relative aspect-square bg-section-alt/30 rounded-[3rem] p-12 flex items-center justify-center border border-divider/40">
+          <div className="relative aspect-square bg-section-alt/30 rounded-[3rem] p-12 flex items-center justify-center border  border-gray-200/40">
             <img
               src={activeImg}
               alt={product.name}
@@ -86,7 +86,7 @@ export default function ProductDetail() {
 
           {/* Product Right Content */}
           <div className="flex flex-col">
-            <h1 className="font-heading text-3xl md:text-4xl font-black text-text-secondary leading-tight mb-4">
+            <h1 className=" text-3xl md:text-4xl font-black text-text-secondary leading-tight mb-4">
               {product.name}
             </h1>
 
@@ -94,7 +94,7 @@ export default function ProductDetail() {
               {product.status}
             </div>
 
-            <div className="space-y-8 pb-10 border-b border-divider">
+            <div className="space-y-8 pb-10 border-b  border-gray-200">
               <div>
                 <h4 className="text-lg font-black text-text-secondary mb-4 flex items-center gap-2">
                   <span className="text-primary italic">1.</span> TÍNH CHẤT NỔI
@@ -137,7 +137,7 @@ export default function ProductDetail() {
       </PublicContainer>
 
       {/* Extended Info Sections */}
-      <PublicContainer className="bg-section-alt/30 py-24 border-t border-divider mx-auto">
+      <PublicContainer className="bg-section-alt/30 py-24 border-t  border-gray-200 mx-auto">
         <div>
           <h4 className="text-xs font-black uppercase tracking-widest text-text-secondary mb-4 underline decoration-primary decoration-2 underline-offset-8">
             Mô tả
@@ -154,11 +154,11 @@ export default function ProductDetail() {
       {/* Related Products */}
       <PublicContainer className="py-24 mx-auto">
         <div className="flex items-center justify-between mb-16">
-          <h2 className="font-heading text-3xl font-black text-text-secondary">
+          <h2 className=" text-3xl font-black text-text-secondary">
             Sản phẩm liên quan
           </h2>
           <div className="flex gap-3">
-            <button className="w-10 h-10 rounded-full border border-divider flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+            <button className="w-10 h-10 rounded-full border  border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
               <svg
                 width="20"
                 height="20"
@@ -170,7 +170,7 @@ export default function ProductDetail() {
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
-            <button className="w-10 h-10 rounded-full border border-divider flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+            <button className="w-10 h-10 rounded-full border  border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
               <svg
                 width="20"
                 height="20"
@@ -192,14 +192,14 @@ export default function ProductDetail() {
               href={`/san-pham/${rel.id}`}
               className="group flex flex-col items-center"
             >
-              <div className="aspect-square w-full bg-section-alt/40 rounded-3xl p-6 mb-6 flex items-center justify-center border border-divider/50 group-hover:shadow-warm-md transition-all">
+              <div className="aspect-square w-full bg-section-alt/40 rounded-3xl p-6 mb-6 flex items-center justify-center border  border-gray-200/50 group-hover:shadow-warm-md transition-all">
                 <img
                   src={rel.img}
                   alt={rel.name}
                   className="w-full h-full object-contain drop-shadow-lg group-hover:scale-105 transition-transform"
                 />
               </div>
-              <h3 className="text-center font-heading font-black text-text-secondary mb-3 px-2 leading-tight group-hover:text-primary transition-colors text-sm md:text-base">
+              <h3 className="text-center  font-black text-text-secondary mb-3 px-2 leading-tight group-hover:text-primary transition-colors text-sm md:text-base">
                 {rel.name}
               </h3>
               <div className="flex flex-col items-center gap-1">

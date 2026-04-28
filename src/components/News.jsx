@@ -25,7 +25,7 @@ export default function News() {
         >
           <div className="max-w-2xl">
             <SectionTag title="Bài Viết & Tin tức" />
-            <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
+            <h2 className=" text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
               Kiến Thức Lúa Gạo
               <br />
               Từ Chuyên Gia{' '}
@@ -88,14 +88,14 @@ export default function News() {
               </div>
 
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="font-heading text-xl font-extrabold text-text-secondary leading-snug mb-4 group-hover:text-primary transition-colors duration-300">
+                <h3 className=" text-xl font-extrabold text-text-secondary leading-snug mb-4 group-hover:text-primary transition-colors duration-300">
                   {article.title}
                 </h3>
                 <p className="text-[0.925rem] text-text-muted leading-relaxed line-clamp-3 mb-8">
                   {article.excerpt}
                 </p>
 
-                <div className="mt-auto flex items-center justify-between pt-6 border-t border-divider/60">
+                <div className="mt-auto flex items-center justify-between pt-6 border-t  border-gray-200/60">
                   <div className="flex items-center gap-2 text-[0.8rem] font-medium text-text-muted/80">
                     <svg
                       width="15"

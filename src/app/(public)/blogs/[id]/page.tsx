@@ -46,7 +46,7 @@ export default function ArticleDetail() {
             >
               {article.category}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-text-secondary leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl  font-black text-text-secondary leading-[1.1] mb-6">
               {article.title}
             </h1>
             <div className="flex items-center gap-6 text-[0.9rem] text-text-muted">
@@ -79,7 +79,7 @@ export default function ArticleDetail() {
             />
 
             {/* Share Section */}
-            <div className="mt-16 pt-10 border-t border-divider flex items-center justify-between">
+            <div className="mt-16 pt-10 border-t  border-gray-200 flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <span className="text-sm font-bold uppercase tracking-wider text-text-muted">
                   Chia sẻ:
@@ -88,7 +88,7 @@ export default function ArticleDetail() {
                   {['Facebook', 'Twitter', 'LinkedIn'].map((social) => (
                     <button
                       key={social}
-                      className="w-10 h-10 rounded-full border border-divider flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                      className="w-10 h-10 rounded-full border  border-gray-200 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                     >
                       <span className="sr-only">{social}</span>
                       {/* Simple placeholder square icon */}
@@ -122,8 +122,8 @@ export default function ArticleDetail() {
 
           <aside className="hidden lg:block">
             <div className="sticky top-32">
-              <div className="bg-section-alt p-8 rounded-3xl border border-divider">
-                <h3 className="font-heading text-xl font-bold text-text-secondary mb-6">
+              <div className="bg-section-alt p-8 rounded-3xl border  border-gray-200">
+                <h3 className=" text-xl font-bold text-text-secondary mb-6">
                   Liên quan
                 </h3>
                 <div className="space-y-8">

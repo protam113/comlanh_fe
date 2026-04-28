@@ -110,21 +110,14 @@ import {
 import Image from 'next/image';
 
 // Custom SVG Icons as React components
-export const TikTok = ({
-  className,
-  width = 24,
-  height = 24,
-}: {
-  className?: string;
-  width?: number;
-  height?: number;
-}) => (
+export const TikTok = ({ className, width = 24, height = 24 }: any) => (
   <Image
     src="/icons/tiktok.svg"
     alt="TikTok"
     width={width}
     height={height}
     className={className}
+    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
   />
 );
 

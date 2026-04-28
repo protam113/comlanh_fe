@@ -14,12 +14,12 @@ export default function Contact() {
   return (
     <div className="pt-24 min-h-screen bg-white">
       {/* Hero Header */}
-      <section className="bg-beige-50 py-12 md:py-16 lg:py-20 border-b border-divider">
+      <section className="bg-beige-50 py-12 md:py-16 lg:py-20 border-b  border-gray-200">
         <div className="container-custom text-center px-4">
           <SectionTag title="Kết nối với chúng tôi" />
 
           <h1
-            className="font-heading
+            className="
       text-2xl sm:text-3xl md:text-5xl lg:text-6xl
       font-black text-secondary-800
       mt-4 md:mt-6
@@ -116,8 +116,8 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-2xl shadow-warm-2xl border border-divider/50">
-              <h3 className="text-2xl font-heading font-black text-secondary-600 mb-6">
+            <div className="bg-white p-8 rounded-2xl shadow-warm-2xl border  border-gray-200/50">
+              <h3 className="text-2xl  font-black text-secondary-600 mb-6">
                 Gửi lời nhắn cho chúng tôi
               </h3>
               <form className="space-y-6">
@@ -128,7 +128,7 @@ export default function Contact() {
                   <input
                     type="text"
                     placeholder="Nguyễn Văn A"
-                    className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
+                    className="w-full bg-section-alt border  border-gray-200 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
                   />
                 </div>
                 <div className="space-y-2">
@@ -138,7 +138,7 @@ export default function Contact() {
                   <input
                     type="tel"
                     placeholder="0xxx-xxx-xxx"
-                    className="w-full bg-section-alt border border-divider rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
+                    className="w-full bg-section-alt border  border-gray-200 rounded-2xl px-6 py-4 outline-none focus:border-primary focus:bg-white transition-all"
                   />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -164,7 +164,7 @@ export default function Contact() {
           <div className="bg-white p-12 ">
             <div className="container-custom text-center px-4">
               <h1
-                className="font-heading
+                className="
       text-lh sm:text-xl md:text-3xl lg:text-4xl
       font-black text-secondary-800
       mt-4 md:mt-6

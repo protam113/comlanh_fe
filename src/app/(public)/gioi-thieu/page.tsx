@@ -66,8 +66,8 @@ export default function About() {
           <div className="inline-block px-4 py-1.5 bg-primary/20 backdrop-blur-md border border-white/30 rounded-full text-sm font-bold tracking-[0.2em] uppercase mb-6">
             Gao Lanh
           </div>
-          <h1 className="text-2xl md:text-5xl font-heading font-black mb-8 leading-tight">
-            <span className="text-primary-bg opacity-90 italic">
+          <h1 className="text-2xl md:text-5xl  font-black mb-8 leading-tight">
+            <span className="text-primary-bg opacity-90 ">
               Cơm Lành - 30 Năm Kinh Nghiệm Gạo Sỉ
             </span>
           </h1>
@@ -98,7 +98,7 @@ export default function About() {
       <section className="py-32 bg-white relative overflow-hidden">
         <div className="container-custom text-center mb-20">
           <SectionTag title="Quy trình 3 bước" />
-          <h2 className="font-heading text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
+          <h2 className=" text-[clamp(2.25rem,4.5vw,3.25rem)] font-bold text-secondary-800 leading-[1.15] mb-5">
             "Thử Thật – Nấu Thật"
           </h2>
           <p className="text-secondary-600">
