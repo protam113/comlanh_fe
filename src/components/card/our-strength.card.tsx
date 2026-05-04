@@ -33,12 +33,11 @@ export const OurStrengthCard = () => {
               Tại Cơm Lành, chúng tôi bán sự "Thật" và sự "An tâm"
             </h1>
             <p className="text-secondary-800 text-base md:text-base font-body leading-relaxed">
-              Chúng tôi hiểu rằng,
-              <span className="font-bold">
-                hạt gạo chất lượng và phù hơp
-              </span>{' '}
+              Chúng tôi hiểu rằng,{' '}
+              <span className="font-bold">hạt gạo chất lượng và phù hơp</span>{' '}
               với đối tác là nền tảng, nhưng
               <span className="font-bold">
+                {' '}
                 hồ sơ pháp lý đầy đủ, minh bạch
               </span>{' '}
               là lá chắn tốt cho đối tác. Cơm Lành cam kết cung cấp giải pháp
