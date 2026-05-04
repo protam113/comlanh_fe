@@ -7,18 +7,18 @@ import Image from 'next/image';
 const solution = [
   {
     id: '1',
-    title: ' Sản phẩm đã kiểm nghiệm & công bố',
-    desc: 'Mọi loại gạo từ Cơm Lành đều trải qua quy trình kiểm nghiệm nghiêm ngặt về các chỉ tiêu an toàn thực phẩm, dư lượng thuốc bảo vệ thực vật và có bản tự công bố chất lượng đầy đủ.',
+    title: ' Gạo Chất Lượng & Ổn Định',
+    desc: 'Cung cấp đa dạng các loại gạo cùng với mức giá ưu đãi hơn so với thị trường 10-15% với cam kết lô gạo đồng đều theo thời gian.',
   },
   {
     id: '2',
-    title: ' Bao bì định danh thương hiệu',
-    desc: 'Gạo được đóng gói trong bao bì có đầy đủ thông tin: Tên loại gạo, khối lượng tịnh, ngày đóng gói, hạn sử dụng và thông tin pháp lý của nhà sản xuất. Đây là minh chứng rõ nhất cho chất lượng và uy tín đối với thực khách.',
+    title: ' Hồ Sơ Hoá Đơn Minh Bạch',
+    desc: 'Cung cấp đầy đủ giấy ATTP, giấy công bố sản phẩm, hợp đồng mua bán, hoá đơn VAT và các chứng từ liên quan đến ATTP',
   },
   {
     id: '3',
-    title: 'Hồ sơ hóa đơn minh bạch',
-    desc: 'Cung cấp đầy đủ giấy ATTP, hóa đơn đỏ (VAT), hợp đồng mua bán và các chứng từ liên quan để anh chị chủ quán hoàn toàn tự tin khi làm việc với các cơ quan chức năng.',
+    title: 'Bao Bì Định Danh',
+    desc: 'Gạo được đóng trong bao bì đầy đủ thông tin (Tên Gạo, Tên Công ty, Hạn Sử Dụng…) theo yêu cầu của sở an toàn thực phẩm',
   },
 ];
 
@@ -33,12 +33,16 @@ export const OurStrengthCard = () => {
               Tại Cơm Lành, chúng tôi bán sự "Thật" và sự "An tâm"
             </h1>
             <p className="text-secondary-800 text-base md:text-base font-body leading-relaxed">
-              Chúng tôi hiểu rằng, một hạt cơm ngon là nền tảng, nhưng một hồ sơ
-              pháp lý sạch là lá chắn cho nhà kinh doanh.{' '}
+              Chúng tôi hiểu rằng,
               <span className="font-bold">
-                Cơm Lành (thuộc Công ty TNHH Trọn Vẹn Toàn)
+                hạt gạo chất lượng và phù hơp
               </span>{' '}
-              cam kết cung cấp giải pháp gạo sỉ chuyên nghiệp:
+              với đối tác là nền tảng, nhưng
+              <span className="font-bold">
+                hồ sơ pháp lý đầy đủ, minh bạch
+              </span>{' '}
+              là lá chắn tốt cho đối tác. Cơm Lành cam kết cung cấp giải pháp
+              gạo sỉ chuyên nghiệp cho đối tác:
             </p>
           </div>
           <div className="">

@@ -5,14 +5,14 @@ import { PublicContainer } from './wrappers/public.container';
 
 const stats = [
   {
-    title: 'Bao bì chung chung',
+    title: 'Gía Tăng Đột Ngột',
     label:
-      'Không tên thương hiệu, không địa chỉ sản xuất, dễ bị nhầm lẫn với hàng kém chất lượng.',
+      'Nhiều nhà cung cấp gạo tăng giá bất ngờ, đặt biệt khi thị trường có biến động. Chủ quản không có phương án kịp thời khiến lợi nhuận bị bào mòn',
   },
   {
-    title: 'Không hóa đơn, chứng từ',
+    title: 'Chất Lượng Không Ổn Định',
     label:
-      'Khi cơ quan quản lý thị trường hoặc kiểm tra liên ngành ghé thăm, chủ quán hoàn toàn "trắng tay" trong việc chứng minh nguồn gốc xuất xứ.',
+      'Chào hàng loại tốt, giao hàng loại rẻ hoặc biến động mùa vụ không được kiểm soát chặt chẽ do hệ thống gạo kém khiến uy tiến bạn giảm đi',
   },
   {
     title: 'Rủi ro pháp lý cao',

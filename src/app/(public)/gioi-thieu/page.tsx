@@ -85,12 +85,12 @@ export default function About() {
       <Stats />
 
       {/* Vision & Values */}
-      <section
+      {/* <section
         className="py-32 bg-beige-50/80"
         ref={valuesRef as unknown as React.RefObject<HTMLElement>}
       >
         <FaqCard />
-      </section>
+      </section> */}
       <div className="bg-white p-8">
         <OurStrengthCard />
       </div>
