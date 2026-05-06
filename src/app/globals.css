@@ -503,7 +503,7 @@ body {
   height: 128px;
 }
 
-. {
+.font-heading {
   font-family: 'Noto Serif', serif;
 }
 /* src/components/CustomCursor.css */

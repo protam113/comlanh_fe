@@ -1,5 +1,6 @@
 'use client';
 
+import { ContactButton } from '@/components/contact.button';
 import { PublicLayout } from '@/components/layouts/public/layout';
 import { ScrollToTopButton } from '@/components/scroll.button';
 
@@ -12,6 +13,7 @@ export default function LayoutDefault({
     <PublicLayout>
       {children}
       <ScrollToTopButton />
+      <ContactButton href="/lien-he" />
     </PublicLayout>
   );
 }
