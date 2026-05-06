@@ -44,6 +44,9 @@ export default function Stats() {
       className="py-24 bg-linear-to-br from-primary-dark via-primary-800 to-primary-400 mx-auto relative overflow-hidden"
       ref={ref}
     >
+      <h1 className="text-4xl text-white font-bold mt-4 mb-16 text-center">
+        3 vấn đề khách sỉ mua gạo đang gặp phải
+      </h1>
       <div className="px-6 w-full relative z-10">
         <PublicContainer className="grid grid-cols-1 mx-auto lg:grid-cols-3 gap-4 text-center">
           {stats.map((stat, i) => (
