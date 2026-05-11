@@ -104,7 +104,7 @@ export default function Certifications() {
 
       <PublicContainer className="mx-auto relative z-10">
         <div
-          className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`grid lg:grid-cols-2 gap-20 lg:gap-32 items-center transition-all duration-1000 ${isVisible ? 'sm:opacity-100 sm:translate-y-0' : 'sm:opacity-0 sm:translate-y-10'}`}
         >
           {/* Left text */}
           <div className="max-w-xl">
@@ -164,7 +164,9 @@ export default function Certifications() {
                 key={cert.name}
                 id={`cert-badge-${cert.name.toLowerCase().replace(/\s/g, '-')}`}
                 className={`p-10 bg-white/60 backdrop-blur-sm rounded-3xl border border-white shadow-warm-md hover:shadow-warm-xl hover:-translate-y-2 transition-all duration-500 text-center flex flex-col items-center gap-6 group transition-all duration-700 ${
-                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                  isVisible
+                    ? 'sm:opacity-100 sm:scale-100'
+                    : 'sm:opacity-0 sm:scale-95'
                 }`}
                 style={{ transitionDelay: `${idx * 150}ms` }}
               >

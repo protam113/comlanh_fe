@@ -18,7 +18,7 @@ export const IntroCard = () => {
       <div className="max-w-[1200px] mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div
-            className={`transition-all duration-1000 delay-300 ${historyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+            className={`transition-all duration-1000 delay-300 ${historyVisible ? 'sm:opacity-100 sm:translate-x-0' : 'sm:opacity-0 sm:-translate-x-10'}`}
           >
             <SectionTag title="Câu chuyện thương hiệu" />
 
@@ -49,7 +49,7 @@ export const IntroCard = () => {
           </div>
 
           <div
-            className={`relative transition-all duration-1000 delay-500 ${historyVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
+            className={`relative transition-all duration-1000 delay-500 ${historyVisible ? 'sm:opacity-100 sm:translate-x-0' : 'sm:opacity-0 sm:translate-x-10'}`}
           >
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-warm-lg">
               <img

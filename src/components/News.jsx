@@ -21,7 +21,7 @@ export default function News() {
         <div className="absolute bottom-0 left-[-10%] w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
 
         <div
-          className={`flex flex-col md:flex-row justify-between items-end gap-10 mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          className={`flex flex-col md:flex-row justify-between md:items-end gap-6 md:gap-10 mb-20 transition-all duration-1000 ${isVisible ? 'sm:opacity-100 sm:translate-y-0' : 'sm:opacity-0 sm:translate-y-10'}`}
         >
           <div className="max-w-2xl">
             <SectionTag title="Bài Viết & Tin tức" />
@@ -34,7 +34,7 @@ export default function News() {
           <Link
             href="/blogs/all"
             id="view-all-news-btn"
-            className="group flex items-center gap-3 font-bold text-primary hover:text-primary-dark transition-colors py-2"
+            className="group flex items-center gap-3 font-bold text-primary hover:text-primary-dark transition-colors py-2 self-start md:self-auto"
           >
             <span>Xem tất cả bài viết</span>
             <div className="w-10 h-10 border border-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
@@ -63,10 +63,10 @@ export default function News() {
               id={`news-card-${article.id}`}
               className={`flex flex-col bg-white rounded-3xl overflow-hidden shadow-warm-lg hover:shadow-warm-xl transition-all duration-700 group cursor-pointer border border-white/50 hover:-translate-y-2 ${
                 isVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-20'
+                  ? 'sm:opacity-100 sm:translate-y-0'
+                  : 'sm:opacity-0 sm:translate-y-10'
               }`}
-              style={{ transitionDelay: `${idx * 200}ms` }}
+              style={{ transitionDelay: `${idx * 150}ms` }}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
                 <img
