@@ -69,38 +69,35 @@ export default function ProductList() {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
           {filteredProducts.map((product, idx) => (
-            <Link
+            <div
               key={product.id}
-              href={`/san-pham/${product.id}`}
-              className="group flex flex-col items-center bg-section-alt/40 rounded-3xl p-8 border  border-gray-200 hover:border-primary/30 hover:shadow-warm-xl transition-all duration-500 hover:-translate-y-2"
+              className="group flex flex-col items-center bg-section-alt/40 rounded-3xl p-8 border border-gray-200 hover:border-primary/30 hover:shadow-warm-xl transition-all duration-500 hover:-translate-y-2"
               style={{ transitionDelay: `${idx * 100}ms` }}
             >
-              <div className="relative aspect-square w-full mb-8 flex items-center justify-center">
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  className="w-full h-full object-contain drop-shadow-xl transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
+              <Link
+                href={`/san-pham/${product.id}`}
+                className="w-full flex flex-col items-center flex-1"
+              >
+                <div className="relative aspect-square w-full mb-8 flex items-center justify-center">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-full h-full object-contain drop-shadow-xl transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
 
-              <div className="text-center flex flex-col items-center flex-1">
-                <h3 className=" text-lg font-black text-text-secondary mb-4 leading-tight group-hover:text-primary transition-colors h-14 flex items-center">
+                <h3 className="text-lg font-black text-text-secondary mb-4 leading-tight group-hover:text-primary transition-colors h-14 flex items-center text-center">
                   {product.name}
                 </h3>
+              </Link>
 
-                <div className="mt-auto flex flex-col items-center gap-3 w-full">
-                  <div className="text-lg font-black text-primary">
-                    {product.status}
-                  </div>
-
-                  {product.stockStatus === 'Hết hàng' && (
-                    <span className="text-[0.65rem] font-black uppercase tracking-widest px-4 py-1.5 bg-text-muted/10 text-text-muted rounded-full">
-                      Hết hàng
-                    </span>
-                  )}
-                </div>
-              </div>
-            </Link>
+              <Link
+                href="/lien-he"
+                className="mt-auto flex flex-col items-center gap-3 w-full"
+              >
+                <div className="text-lg font-black text-main">DÙNG THỬ</div>
+              </Link>
+            </div>
           ))}
         </div>
       </PublicContainer>
