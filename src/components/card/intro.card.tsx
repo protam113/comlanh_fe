@@ -22,7 +22,7 @@ export const IntroCard = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
 
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const progressIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
     null
   );
@@ -32,31 +32,32 @@ export const IntroCard = () => {
 
   const cards: Card[] = [
     {
+      keyword: '3 Yếu Tố Duy Trì Gạo Ổn Định',
+      video:
+        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v4.mp4',
+    },
+    {
+      keyword: 'Gạo Chất Lượng Và Giải Pháp Chuyên Sâu',
+      video:
+        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v5.mp4',
+    },
+    {
       keyword: 'Gạo Thiện Nguyện',
       video:
         'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v1.mp4',
-    },
-    {
-      keyword: 'Giữ Giá Ổn Định',
-      video:
-        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v2.mp4',
-    },
-    {
-      keyword: 'Tặng mẫu thử 5kg',
-      video:
-        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v3.mp4',
     },
   ];
 
   // Track how much time elapsed before pause so we can resume the progress bar correctly
   const elapsedBeforePauseRef = useRef<number>(0);
 
+  const currentVideo = () => videoRefs.current[currentIndex];
+
   const togglePlay = useCallback(() => {
-    const vid = videoRef.current;
+    const vid = currentVideo();
     if (!vid) return;
 
     if (vid.paused) {
-      // RESUME — restart interval + remaining timeout from where we left off
       vid.play().catch(() => {});
       setIsPaused(false);
 
@@ -78,7 +79,6 @@ export const IntroCard = () => {
         });
       }, remaining + 500);
     } else {
-      // PAUSE — freeze everything
       vid.pause();
       setIsPaused(true);
 
@@ -88,12 +88,14 @@ export const IntroCard = () => {
         clearInterval(progressIntervalRef.current);
       if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
     }
-  }, [cards.length]);
+  }, [cards.length, currentIndex]);
 
   const toggleMute = useCallback(() => {
     setIsMuted((prev) => {
       const next = !prev;
-      if (videoRef.current) videoRef.current.muted = next;
+      videoRefs.current.forEach((v) => {
+        if (v) v.muted = next;
+      });
       return next;
     });
   }, []);
@@ -109,20 +111,43 @@ export const IntroCard = () => {
     }, 250);
   }, []);
 
-  const handleLoadedMetadata = useCallback(() => {
-    const vid = videoRef.current;
-    if (vid && vid.duration && isFinite(vid.duration)) {
-      durationRef.current = vid.duration * 1000;
-    }
-  }, []);
+  const handleLoadedMetadata = useCallback(
+    (index: number) => {
+      const vid = videoRefs.current[index];
+      if (
+        vid &&
+        vid.duration &&
+        isFinite(vid.duration) &&
+        index === currentIndex
+      ) {
+        durationRef.current = vid.duration * 1000;
+      }
+    },
+    [currentIndex]
+  );
 
   useEffect(() => {
-    const vid = videoRef.current;
+    const vid = videoRefs.current[currentIndex];
     if (!vid) return;
 
-    // Preserve muted state across video switches
+    // Pause all other videos
+    videoRefs.current.forEach((v, i) => {
+      if (v && i !== currentIndex) {
+        v.pause();
+        v.currentTime = 0;
+      }
+    });
+
     vid.muted = isMuted;
-    vid.load();
+    elapsedBeforePauseRef.current = 0;
+    setIsPaused(false);
+
+    // If already loaded, use existing duration; else wait for metadata
+    if (vid.readyState >= 1 && isFinite(vid.duration)) {
+      durationRef.current = vid.duration * 1000;
+    }
+
+    vid.currentTime = 0;
     vid.play().catch(() => {});
 
     startTimeRef.current = Date.now();
@@ -261,20 +286,31 @@ export const IntroCard = () => {
                   </div>
                 </div>
               )}
-              <video
-                ref={videoRef}
-                key={currentIndex}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                autoPlay
-                muted
-                playsInline
-                preload="metadata"
-                poster="/images/video-thumb.jpg"
-                onLoadedMetadata={handleLoadedMetadata}
-              >
-                <source src={cards[currentIndex].video} type="video/mp4" />
-                Trình duyệt không hỗ trợ video.
-              </video>
+
+              {/* All videos preloaded — only active one visible */}
+              {cards.map((card, index) => (
+                <video
+                  key={index}
+                  ref={(el) => {
+                    videoRefs.current[index] = el;
+                  }}
+                  className="absolute inset-0 w-full h-full"
+                  style={{
+                    opacity: index === currentIndex ? 1 : 0,
+                    pointerEvents: 'none',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    transform: 'scale(1.35)',
+                  }}
+                  muted
+                  playsInline
+                  preload="auto"
+                  poster="/images/video-thumb.jpg"
+                  onLoadedMetadata={() => handleLoadedMetadata(index)}
+                >
+                  <source src={card.video} type="video/mp4" />
+                </video>
+              ))}
 
               {/* Mute / Unmute button */}
               <button
