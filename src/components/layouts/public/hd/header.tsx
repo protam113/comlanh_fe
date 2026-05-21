@@ -13,19 +13,18 @@ const navItems = [
   { label: 'Giới thiệu', href: '/gioi-thieu' },
   {
     label: 'Đối Tác',
-    href: '/doi-tac',
+    href: '#',
     dropdown: [
-      { label: 'Tất cả', href: '/doi-tac' },
-      { label: 'NHÀ HÀNG, QUÁN ĂN', href: '/doi-tac/nha-hang-quan-an' },
+      { label: 'NHÀ HÀNG, QUÁN ĂN', href: '/nha-hang-quan-an' },
       {
         label: 'TRƯỜNG HỌC, BỆNH VIỆN, XÍ NGHIỆP',
-        href: '/doi-tac/truong-hoc-benh-vien-xi-nghiep',
+        href: '/truong-hoc-benh-vien-xi-nghiep',
       },
       {
         label: 'XƯỞNG CHẾ BIẾN & SẢN XUẤT TỪ GẠO',
-        href: '/doi-tac/xuong-che-bien-san-xuat-tu-gao',
+        href: '/xuong-che-bien-san-xuat-tu-gao',
       },
-      { label: 'GẠO THIỆN NGUYỆN', href: '/doi-tac/gao-thien-nghien' },
+      { label: 'GẠO THIỆN NGUYỆN', href: '/gao-thien-nguyen' },
     ],
   },
 

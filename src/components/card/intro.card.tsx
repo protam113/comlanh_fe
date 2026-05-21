@@ -44,7 +44,7 @@ export const IntroCard = () => {
     {
       keyword: 'Gạo Thiện Nguyện',
       video:
-        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v1.mp4',
+        'https://hcm03.vstorage.vngcloud.vn/v1/AUTH_161cb0839cf746f991ab035d9a50a0b6/vietstrix-team/video/v6.mp4',
     },
   ];
 
@@ -175,6 +175,46 @@ export const IntroCard = () => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
+
+  useEffect(() => {
+    const handleVisibility = () => {
+      const vid = videoRefs.current[currentIndex];
+      if (!vid) return;
+
+      if (document.hidden) {
+        // Tab bị ẩn → pause mọi thứ
+        if (!vid.paused) {
+          vid.pause();
+          elapsedBeforePauseRef.current = Date.now() - startTimeRef.current;
+          if (progressIntervalRef.current)
+            clearInterval(progressIntervalRef.current);
+          if (autoAdvanceRef.current) clearTimeout(autoAdvanceRef.current);
+          // Không setIsPaused(true) — tránh hiện overlay pause UI
+        }
+      } else {
+        // Tab active lại → resume nếu trước đó đang chạy
+        if (vid.paused && !isPaused) {
+          vid.play().catch(() => {});
+          const remaining = durationRef.current - elapsedBeforePauseRef.current;
+          startTimeRef.current = Date.now() - elapsedBeforePauseRef.current;
+
+          progressIntervalRef.current = setInterval(() => {
+            const elapsed = Date.now() - startTimeRef.current;
+            setProgress(Math.min((elapsed / durationRef.current) * 100, 100));
+          }, 50);
+
+          autoAdvanceRef.current = setTimeout(() => {
+            goToIndex((currentIndex + 1) % cards.length);
+          }, remaining + 500);
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibility);
+    };
+  }, [currentIndex, isPaused, cards.length, goToIndex]);
 
   return (
     <section
