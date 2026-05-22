@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectCreative } from 'swiper/modules';
 
@@ -17,11 +17,71 @@ const slides = [
 export default function Hero() {
   const swiperRef = useRef(null);
 
+  useEffect(() => {
+    const header = document.getElementById('main-header');
+    if (!header) return;
+
+    const update = () => {
+      document.documentElement.style.setProperty(
+        '--header-h',
+        `${header.offsetHeight}px`
+      );
+    };
+
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
   return (
     <section
       id="hero-section"
-      className="relative h-[85vh] min-h-[600px] w-full bg-primary-800 select-none"
+      className="relative w-full select-none mt-[var(--header-h)] md:h-[calc(100svh-var(--header-h))] md:min-h-[500px]"
     >
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          #hero-section .swiper,
+          #hero-section .swiper-wrapper,
+          #hero-section .swiper-slide {
+            height: auto !important;
+          }
+
+          @media (min-width: 768px) {
+            #hero-section .swiper,
+            #hero-section .swiper-wrapper,
+            #hero-section .swiper-slide {
+              height: 100% !important;
+            }
+          }
+
+          .hero-pagination .swiper-pagination-bullet {
+            width: 28px;
+            height: 2px;
+            border-radius: 0;
+            background: rgba(255,255,255,0.25);
+            opacity: 1;
+            transition: all 0.6s ease;
+            margin: 0 !important;
+          }
+          .hero-pagination .swiper-pagination-bullet-active {
+            background: #fff;
+            width: 48px;
+          }
+          @media (min-width: 768px) {
+            .hero-pagination .swiper-pagination-bullet { width: 40px; }
+            .hero-pagination .swiper-pagination-bullet-active { width: 70px; }
+          }
+
+          @keyframes pulse-slow {
+            0%, 100% { transform: scaleY(1); opacity: 0.3; }
+            50%       { transform: scaleY(1.5); opacity: 1; }
+          }
+          .animate-pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+        `,
+        }}
+      />
+
       <Swiper
         modules={[Autoplay, Pagination, EffectCreative]}
         effect="creative"
@@ -31,14 +91,8 @@ export default function Hero() {
         }}
         loop={true}
         speed={1000}
-        autoplay={{
-          delay: 6000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-          el: '.hero-pagination',
-        }}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        pagination={{ clickable: true, el: '.hero-pagination' }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
@@ -46,30 +100,28 @@ export default function Hero() {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative w-full h-full overflow-hidden">
-              <img
-                src={slide.bgImage}
-                alt=""
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <img
+              src={slide.bgImage}
+              alt=""
+              className="block w-full h-auto md:h-full md:object-cover md:object-center"
+            />
           </SwiperSlide>
         ))}
 
         {/* Pagination */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 hero-pagination flex gap-4" />
+        <div className="absolute bottom-3 md:bottom-8 left-1/2 -translate-x-1/2 z-20 hero-pagination flex gap-3" />
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
-          <div className="w-px h-10 bg-linear-to-b from-transparent via-white to-transparent animate-pulse-slow" />
+        {/* Scroll indicator — chỉ desktop */}
+        <div className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex-col items-center gap-3 opacity-40 hover:opacity-100 transition-opacity cursor-pointer">
+          <div className="w-px h-8 bg-linear-to-b from-transparent via-white to-transparent animate-pulse-slow" />
         </div>
       </Swiper>
 
-      {/* Prev / Next */}
+      {/* Prev / Next — chỉ desktop */}
       <button
         onClick={() => swiperRef.current?.slidePrev()}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30
-          w-10 h-10 flex items-center justify-center
+        className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30
+          w-11 h-11 items-center justify-center
           rounded-full bg-black/30 hover:bg-black/50
           text-white transition-colors duration-200"
         aria-label="Trước"
@@ -89,8 +141,8 @@ export default function Hero() {
       </button>
       <button
         onClick={() => swiperRef.current?.slideNext()}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30
-          w-10 h-10 flex items-center justify-center
+        className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30
+          w-11 h-11 items-center justify-center
           rounded-full bg-black/30 hover:bg-black/50
           text-white transition-colors duration-200"
         aria-label="Tiếp"
@@ -108,33 +160,6 @@ export default function Hero() {
           <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
-
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .hero-pagination .swiper-pagination-bullet {
-              width: 40px;
-              height: 2px;
-              border-radius: 0;
-              background: rgba(255,255,255,0.2);
-              opacity: 1;
-              transition: all 0.6s ease;
-              margin: 0 !important;
-            }
-            .hero-pagination .swiper-pagination-bullet-active {
-              background: #fff;
-              width: 70px;
-            }
-            @keyframes pulse-slow {
-              0%, 100% { transform: scaleY(1); opacity: 0.3; }
-              50% { transform: scaleY(1.5); opacity: 1; }
-            }
-            .animate-pulse-slow {
-              animation: pulse-slow 3s ease-in-out infinite;
-            }
-          `,
-        }}
-      />
     </section>
   );
 }

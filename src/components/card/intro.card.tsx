@@ -218,7 +218,7 @@ export const IntroCard = () => {
 
   return (
     <section
-      className="py-32 bg-beige-50/30 overflow-hidden"
+      className="py-32 bg-beige-50 overflow-hidden"
       ref={historyRef as unknown as React.RefObject<HTMLElement>}
     >
       <div className="max-w-[1200px] mx-auto px-6 w-full">

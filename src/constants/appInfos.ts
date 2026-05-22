@@ -10,7 +10,7 @@ export const appInfo = {
     'Cơm Lành - Đối tác tin cậy của hàng nghìn quán ăn. Cung cấp gạo chất lượng cao với quy trình "Thử Thật - Nấu Thật". Gạo sạch, an toàn, phù hợp cho kinh doanh.',
   domain:
     process.env.NEXT_PUBLIC_SITE_DOMAIN || 'https://comlanh-fe.vercel.app',
-  ogImage: process.env.NEXT_PUBLIC_OG_IMAGE || '/imgs/ogImage.png',
+  ogImage: process.env.NEXT_PUBLIC_OG_IMAGE || '/imgs/Comlanh_OgImate.png',
   themeColor: process.env.NEXT_PUBLIC_THEME_COLOR || '#ffffff',
   keywords: process.env.NEXT_PUBLIC_SITE_KEYWORDS?.split(',').map((k) =>
     k.trim()
@@ -63,7 +63,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: appInfo.domain,
     languages: {
-      'en-US': `${appInfo.domain}/en`,
       'vi-VN': `${appInfo.domain}`,
     },
   },
